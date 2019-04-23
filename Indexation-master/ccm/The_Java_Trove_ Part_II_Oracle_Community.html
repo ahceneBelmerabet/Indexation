@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html class="history hashchange cssgradients rgba no-touch boxshadow hasjs haspushstate" lang="fr"><head><meta charset="utf-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="keywords" content="java, java 9, java se, java se 8, java_se_9, lambda"><title>The Java Trove: Part II |&nbsp;Oracle Community</title><meta name="viewport" content="user-scalable=0, initial-scale=1.0"><link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/jive-base.css" type="text/css" media="all"><link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/jive.css" type="text/css" media="all"><link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/jive-visor.css" type="text/css" media="all"><link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/javanet-theme.css" type="text/css" media="all"><link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/materialdesignicons.css" type="text/css" media="all"><link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/osb-slider.css" type="text/css" media="all"><link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/slider.css" type="text/css" media="all">	<link rel="search" href="https://community.oracle.com/opensearch.xml" title="Oracle Community" type="application/opensearchdescription+xml"><link rel="shortcut icon" type="image/x-icon" href="https://community.oracle.com/favicon.ico">	<!--[if lt IE 9]><script src="/8.0.3.1619a91/resources/scripts/vendor/html5shiv.min.js"></script><![endif]--><!--DTM embed code - Header --><script type="text/javascript" async="" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/elqCfg.js"></script><script async="" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/bk-coretag.js"></script><script type="text/javascript" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/satelliteLib-e598c5b61e39a10b402e048e87dd27b0f1cd2d4c.js"></script><script src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/8c5b1b1c855eb79c97fb835ac0942d9b.js"></script>
+
+    
+    <meta name="titleEscaped" content="true">
+
+    <meta name="description" content="by Andres Almiray  Part 2 in a series that explores libraries for improving Java developers' productivity and enhancing the development experience   Table">
+<!-- oracle customized code WPT#250395 -->
+    <meta name="contenttype_id" content="WM178623">
+
+ 
+
+
+	<link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/jive-content.css" type="text/css" media="all">
+	<link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/content.css" type="text/css" media="all">
+    <!-- UI-Extensions (if any)-->
+
+
+        <link rel="alternate" type="application/rss+xml" title="The Java Trove: Part II Fil des historiques de versions" href="https://community.oracle.com/community/feeds/document-history/DOC-1007145">
+
+        <link rel="alternate" type="application/rss+xml" title="The Java Trove: Part II Flux des commentaires" href="https://community.oracle.com/community/feeds/document-comments/DOC-1007145">
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        var documentID = 1007145;
+
+        function publishDraft() {
+            var form = $j('#documentPublishForm');
+            jive.util.securedForm(form).always(function() {
+                form.submit();
+            });
+        }
+
+        function restoreVersion(version) {
+           if (confirm('Êtes-vous certain(e) de vouloir restaurer cette version du texte du document ?')){
+                var form = $j('#documentRestoreForm');
+                jive.util.securedForm(form).always(function() {
+                    form.submit();
+                });
+           }
+        }
+
+    </script>
+
+    <!-- BEGIN action bar, only for non-binary documents -->
+
+    
+
+    <!-- END action bar -->
+
+<link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/n4jive.css" type="text/css" media="all"><link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/n4jive_002.css" type="text/css" media="all"><link rel="stylesheet" href="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/jive-exobjects-icons.css" type="text/css" media="all"><style type="text/css">.j-pop.mega-nav-pop {top: 90px !important;}</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style></head><body class="jive-body-content j-doc j-header-mode-basic  j-simple-homepage j-responsive-md" style=""><div id="j-search-visor" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-owns="j-visor-search-input" aria-hidden="true" aria-busy="false" style="top: 98px; right: 17px;" aria-activedescendant=""><div class="j-search-visor-inner"><div class="j-visor-searchbar-wrapper"><label for="j-visor-search-input" class="j-508-label">Recherche</label><span class="j-search-n-spinner-wrapper"><i class="j-searchbar-icon icon-search"></i><i class="j-searchbar-thinker icon-spinner spin" aria-hidden="true"></i></span><input id="j-visor-search-input" type="text" class="j-search-input" required="required"><a class="j-searchbar-close" aria-label="Fermer" href="#"><i class="icon-close-thin"></i></a></div><nav class="j-visor-tabs" style="display: none;"></nav><div class="j-visor-views"><div class="j-visor-view-blank"></div></div></div></div><!-- <a id="top"></a>  --><a href="#j-main" class="j-508-label">Ignorer la navigation</a><div id="j-header-wrap" data-company-name="" data-no-user-bar="false" role="banner"><header id="j-header" class="clearfix"><div id="j-basic-wrap"><!--   <h1 id="logo" class="js-logo"><a role="img" title="Logo de Jive" href="/" class="j-header-logo">Jive</a></h1>--></div><!-- Navigational buttons/links --><nav id="j-globalNav-bg" role="navigation" aria-label="Jive" data-mode="basic"><div id="warning-header"><div id="warning-text-container"></div></div><div class="top-header"><div class="inner-header"><ul class="oracle-header-links"><li><a href="http://www.oracle.com/"><span class="icon oracle-logo-small"></span></a></li><li><a href="https://www.oracle.com/communities/index.html">Oracle Community Directory</a></li><li><a href="https://community.oracle.com/community/faq">Oracle Community FAQ</a></li><!-- VIJAY ADDED START 1 --><li><a href="#" id="nav-goto-menu" class="true">Go Directly To <span class="down-arrow-grey"></span></a></li><!-- VIJAY ADDED END 1--></ul><!-- PDIT: VAN MOVED UP FROM SAME HEADER.SOY --><div style="display:none" id="nav-goto-dropdown"><ul><li class="true"><a href="https://community.oracle.com/community/groundbreakers">Oracle Developer Community</a></li><li class="true"><a href="https://community.oracle.com/community/support">My Oracle Support Community</a></li><li class="true"><a href="https://community.oracle.com/community/opncloudconnection">OPN Cloud Connection</a></li><li class="true"><a href="https://community.oracle.com/community/employee">Oracle Employee Community</a></li><li class="true"><a href="https://community.oracle.com/community/usergroups">Oracle User Group Community</a></li><li class="true"><a href="https://community.oracle.com/community/topliners">Topliners Community</a></li><li class="true"><a href="https://community.oracle.com/community/support/support-blogs">Support Blogs</a></li><li class="true"><a href="https://community.oracle.com/community/java">Java Community</a></li><li class="false"><a href=""></a></li><li class="false"><a href=""></a></li></ul></div><ul id="j-satNav-wrap"><li class="js-satellite-nav-container"><ul id="j-satNav"><li class="login"><a href="#" class="login" id="navLogin" title="Connectez-vous">Connectez-vous</a></li><li class="register"><a href="https://profile.oracle.com/myprofile/account/create-account.jspx?nexturl=https%3A%2F%2Fcommunity.oracle.com%2Fwelcome&amp;pid=community" class="register" title="S’inscrire" id="jive-nav-link-reg">S’inscrire</a></li></ul><div id="j-satNav-menu" class="clearfix" style="display:none;"></div></li><li><div id="j-links" style="padding-right: 0px;"><ul class="j-globalNav"></ul></div></li></ul></div></div><!-- VIJAY ADDED START 2 PDIT: VRH: updated existing area to include new mega nav and logos --><!--<div class="container"><div class="java-logo-main"></div><div ><a href="#"><span id="menu-tab"></span></a></div></div>--><!-- VIJAY ADDED END 2--><div class="lower-header"><div class="inner-header"><!-- PDIT VAN / VIJAY COMMENTED START 3--><a class="otn-home" href="https://community.oracle.com/community/java"><span class="icon java-logo-main"></span></a><!-- <a class="mosc-home" href="/community/support"><span class="mosc-header">My Oracle Support Community (MOSC)</span></a>--><!-- VIJAY COMMENTED END 3--><div id="mn-anchor" class="mega-nav" title="Click here to navigate"></div><div id="mn" style="display:none"><div id="mn-top"><ul class="master"><li><a href="https://community.oracle.com/community/enterprise_manager"><span>Enterprise Manager</span></a></li><li class="parent"><a href="https://community.oracle.com/community/gbu" data-spaceid="6543184">Global Business Units</a></li><li><a href="https://community.oracle.com/community/global-startup-ecosystem"><span>Global Startup Ecosystem</span></a></li><li><a href="https://community.oracle.com/community/oracle-academy"><span>Oracle Academy Community</span></a></li><li class="parent right-edge"><a href="https://community.oracle.com/community/groundbreakers" data-spaceid="1011">Oracle Groundbreakers</a></li><li class="parent"><a href="https://community.oracle.com/community/oracle-mobile" data-spaceid="4741878">Oracle Mobile</a></li><li class="parent bottom-edge"><a href="https://community.oracle.com/community/opncloudconnection" data-spaceid="4888986">Oracle PartnerNetwork Cloud Connection</a></li><li class="parent bottom-edge"><a href="https://community.oracle.com/community/scmcommunity" data-spaceid="5443246">Oracle Supply Chain Management Community</a></li><li class="parent bottom-edge"><a href="https://community.oracle.com/community/usergroups" data-spaceid="4705357">Oracle User Group Community Portal</a></li><li class="parent bottom-edge"><a href="https://community.oracle.com/community/other-languages" data-spaceid="4857153">Other Languages</a></li><li class="parent bottom-edge"><a href="https://community.oracle.com/community/topliners" data-spaceid="4973094">Topliners</a></li></ul></div><div id="mn-btm"><div id="mn-breadcrumb"><ul></ul><span id="mn-close" class="icon mn-close"></span></div><div id="mn-sublist"><ul class="masterBtm"></ul></div></div></div><div id="j-links"><ul class="j-globalNav"><li id="j-nav-search-li" class="j-nav-open-visor j-globalNav-li js-nav-open-visor-container j-nav-create" aria-haspopup="true"><label for="j-nav-search" class="j-508-label">Recherche</label><a href="#" id="j-nav-search" class="j-globalNavLink j-ui-elem" role="menuitem" data-hideviews="bookmarks default history" data-hidetypes=""><span class="nav-link j-ui-elem"><i class="icon-search"></i></span></a></li><li id="mobile-search" class="j-globalNav-li mobile-tool"><a class="j-globalNavLink" href="#"><span class="nav-link j-ui-elem"><i class="icon-search"></i></span></a></li></ul><div id="j-spotlight-search" role="search" data-mode="basic"><span class="j-ui-elem j-search-left"><span id="searchpopupanchor"></span></span><span><label for="autosearch" class="j-508-label">Recherche</label><input data-spotlight-enabled="false" id="autosearch" class="j-ui-elem" data-component="autosearch" data-popup-anchor="searchpopupanchor" placeholder="Recherche" type="text" role="combobox" aria-labelledby="autosearch" aria-expanded="false" data-hidetypes="bookmarks frequent recent " data-community-name="Oracle Community" data-filters="" data-origin="spotlight" data-parent-container-name="Oracle Groundbreakers" data-parent-container-browseid="1011" data-custom-theme="java" aria-hidden="true" aria-busy="true"><a href="#" id="mob-spotlight-cancel">Cancel</a></span><span class="j-ui-elem j-search-right"></span><span class="jive-icon-sml jive-glyph-delete" data-component="button" data-type="clear" data-field="autosearch"></span></div></div></div></div></nav></header><noscript><div style="color:red" align="center">Error: You don't have JavaScript enabled. This tool uses JavaScript and much of it will not work correctly without it enabled. Please turn JavaScript back on and reload this page.</div></noscript></div><div id="mobile-overlay"></div><div id="j-main-wrapper"><section id="j-main" class="clearfix"><div id="jive-body" class="clearfix">
+
+    <form id="documentRestoreForm" method="post" action="/docs/DOC-1007145/restore">
+        <input type="hidden" name="version" value="4">
+        <input type="hidden" name="jive.token.name" value="document.restore.DOC-1007145">
+        <input type="hidden" name="document.restore.DOC-1007145" value="[placeholder]">
+    </form>
+
+    <form id="documentPublishForm" method="post" action="/doc-publish.jspa">
+        <input type="hidden" name="jive.token.name" value="document.publish.DOC-1007145">
+        <input type="hidden" name="document.publish.DOC-1007145" value="[placeholder]">
+        <input type="hidden" name="document" value="DOC-1007145">
+    </form>
+
+    <!-- BEGIN header & intro  -->
+    <header id="jive-body-intro">
+        <nav class="j-context" role="navigation" aria-label="Chemin de navigation">
+            <span id="js-breadcrumb-intro" data-container-url="/community/groundbreakers/java/java_desktop" data-container-icon-css="jive-icon-med jive-icon-space" data-container-display-name="Java SE" data-content-browse-filter="/content?filterID=contentstatus[published]~objecttype~objecttype[document]" data-has-content-rel-intro-key="doc.main.docs_in_related.link" data-no-content-rel-intro-key="doc.main.up_to_docs_in.link">
+<a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/content?filterID=contentstatus[published]~objecttype~objecttype[document]">Plus de documents</a> dans <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop"><span class="jive-icon-med jive-icon-space"></span>Java SE</a>            </span>
+ <a href="#" id="js-place-parents-link" class="j-nav-more jive-icon-glyph icon-angle-down" title="Où se situe cet emplacement ?"></a><div id="js-place-parents-container" class="j-pop-main j-menu j-quick-menu j-breadcrumb-popover" style="display: none"><ul class="j-icon-list"><li><a href="https://community.oracle.com/places" class="noIcon"><span class="lnk">Tous les emplacements</span></a><ul><li><a href="https://community.oracle.com/community/groundbreakers"><span class="jive-icon-med jive-icon-space"></span><span class="lnk">Oracle Groundbreakers</span></a><span class="jive-icon-glyph icon-angle-down jive-breadcrumb-arrow"></span><ul><li><a href="https://community.oracle.com/community/groundbreakers/java"><span class="jive-icon-med jive-icon-space"></span><span class="lnk">Java</span></a><span class="jive-icon-glyph icon-angle-down jive-breadcrumb-arrow"></span><ul><li><a href="https://community.oracle.com/community/groundbreakers/java/java_desktop" class="last-child"><span class="jive-icon-med jive-icon-space"></span><span class="lnk">Java SE</span></a></li></ul></li></ul></li></ul></li></ul></div><span id="js-place-link-breadcrumb" data-place-link-count="0" data-linked-content-id="1007145" data-linked-content-type="102" data-place="true" data-parents="true"></span>        </nav>
+    </header>
+    <!-- END header & intro -->
+
+    <!-- BEGIN main body -->
+    <div class="jive-wiki-post-moderating jive-content-header-moderating">
+        <span class="jive-icon-glyph icon-moderation"></span>En cours de modération
+    </div>
+    <div id="jive-body-main" class="j-layout j-layout-ls clearfix">
+        <div class="j-column-wrap-l">
+            <div class="j-column j-column-l lg-margin">
+
+                    <div id="object-follow-notify" class="jive-info-box" style="display:none" aria-live="polite" aria-atomic="true"></div>
+
+                    <div id="content-featured-notify" class="jive-info-box" style="display:none" aria-live="polite" aria-atomic="true"></div>
+
+
+<div class="jive-warn-box external-access" aria-live="polite" aria-atomic="true" style="display:none;"></div>
+
+
+
+
+
+
+
+<!-- BEGIN document -->
+<ul class="js-outcome-badge-container js-outcome-badge-container-top j-outcome-badge-container-top j-outcome-badge-container js-ed-102-1007145 j-outcome-summary-container clearfix" data-object-type="102" data-object-id="1007145" aria-label="Badges de résultats" data-allowed-outcome-types="&quot;List(\&quot;finalized\&quot;, \&quot;outdated\&quot;, \&quot;official\&quot;, \&quot;wip\&quot;)&quot;" aria-live="polite"></ul>
+<!-- BEGIN guided nav -->
+<div class="j-guided-nav js-guided-nav j-rc4" style="display: none;"><div class="j-header js-header j-rc4 j-rc-none-bottom"></div><div class="j-navbar js-navbar"></div></div><!-- END guided nav -->
+
+
+<div class="jive-content clearfix doc-page js-tlo js-ed-102-1007145" role="main" aria-labelledby="main-doc-header" data-object-type="102" data-object-id="1007145">
+    <header>
+        <h1><span role="img" title="Document" class="jive-icon-big jive-icon-document"></span>The Java Trove: Part II</h1>
+
+
+            <span class="j-version">
+                <span class="jive-icon-glyph icon-stack"></span> Version 4
+            </span>
+
+        <div class="j-byline font-color-meta">
+ 
+Créé par <a href="https://community.oracle.com/people/Yolande%20Poirier-Oracle" data-externalid="" data-username="Yolande%20Poirier-Oracle" data-avatarid="16799" id="jive-77865521078163056847708" data-userid="778655" data-presence="null" class="jiveTT-hover-user jive-username-link">Yolande Poirier-Oracle</a> le 10 oct. 2016 18:30. Dernière modification effectuée par <a href="https://community.oracle.com/people/SteveOnJava-Oracle" data-externalid="" data-username="SteveOnJava-Oracle" data-avatarid="13339" id="jive-117593921078163059559890" data-userid="1175939" data-presence="null" class="jiveTT-hover-user jive-username-link">SteveOnJava-Oracle</a> le 21 oct. 2016 19:22.        </div>
+
+<ul class="js-outcome-badge-container j-outcome-badge-container js-ed-102-1007145 j-outcome-tlo-badge-container" data-object-type="102" data-object-id="1007145" aria-label="Badges de résultats" data-allowed-outcome-types="&quot;List(\&quot;decision\&quot;, \&quot;success\&quot;, \&quot;pending\&quot;, \&quot;helpful\&quot;, \&quot;resolved\&quot;)&quot;" aria-live="polite"></ul>    </header>
+
+
+    <section class="jive-content-body">
+
+<!-- UI-Extensions (if any)-->
+
+
+<!-- [DocumentBodyStart:f849168c-e4fc-4054-97cf-b67d840f9d8e] --><div class="jive-rendered-content"><h1><span style="font-size: 12pt;"><em>by Andres Almiray</em></span></h1><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><strong>Part 2 in a series that explores libraries for improving Java developers' productivity and enhancing the development experience</strong></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><strong>Table of Contents</strong><br><a class="jive-link-anchor-small" href="#_choosing_the_base_testing_framework">Choosing the Base Testing Framework</a><br><a class="jive-link-anchor-small" href="#_testing_the_controller">Testing the Controller</a><br><a class="jive-link-anchor-small" href="#_integration_testing">Integration Testing</a><br><a class="jive-link-anchor-small" href="#_conclusion">Conclusion</a><br><a class="jive-link-anchor-small" href="#_see_also">See Also</a><br><a class="jive-link-anchor-small" href="#_about_the_author">About the Author</a></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>In the <a class="jive-link-wiki-small" data-containerid="13291" data-containertype="14" data-objectid="1005785" data-objecttype="102" href="https://community.oracle.com/docs/DOC-1005785">first part</a>
+ of this series, we learned how to build a simple JavaFX application 
+that’s able to query a REST-based API and display the results. To 
+summarize, we used <a class="jive-link-external-small" href="http://square.github.io/retrofit" rel="nofollow">Retrofit</a> to define a Java-based wrapper on top of <a class="jive-link-external-small" href="https://developer.github.com/v3/" rel="nofollow">GitHub’s REST API</a>. The data coming from the server was transformed from JSON into Java beans using <a class="jive-link-external-small" href="https://github.com/FasterXML/jackson" rel="nofollow">Jackson</a>. The source code of the Java beans was kept to a minimum with <a class="jive-link-external-small" href="https://projectlombok.org/features/index.html" rel="nofollow">Lombok</a>, a bytecode generation tool. <a class="jive-link-external-small" href="http://jdeferred.org/" rel="nofollow">JDeferred</a>
+ was used to invoke the network call outside of the UI thread, 
+leveraging the concept of promises and callbacks. Any errors during 
+processing were sent as events through a lightweight event bus provider,
+ <a class="jive-link-external-small" href="https://github.com/bennidi/mbassador" rel="nofollow">MBassador</a>, ensuring low coupling between components as a result. Finally, all components were glued together using <a class="jive-link-external-small" href="https://github.com/google/guice" rel="nofollow">Google Guice</a>, the reference implementation of <a class="jive-link-external-small" href="https://jcp.org/en/jsr/detail?id=330" rel="nofollow">JSR 330</a>, the dependency injection JSR for Java SE.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Now
+ it’s the time to figure out how these components can be tested. 
+Remember that the full source code is also available under the GPL3 
+license at <a class="jive-link-external-small" href="https://github.com/aalmiray/javatrove/tree/master/github-api-01" rel="nofollow">javatrove/github-api-01</a>.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2><a name="_choosing_the_base_testing_framework"></a>Choosing the Base Testing Framework</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>When it comes to testing Java code, there are a few options that pop to mind. There’s <a class="jive-link-external-small" href="http://junit.org/junit4" rel="nofollow">JUnit</a>,
+ a testing framework that almost every Java developer has seen before, 
+used, or heard of at some point. JUnit is the project that 
+revolutionized how we wrote tests in Java back in the day because, well,
+ back when JUnit appeared there were no testing frameworks of note. 
+JUnit became wildly popular among developers who wrote tests—believe it 
+or not, at the time there were people that didn’t see the benefits of 
+writing <em>any</em> kind of automated tests, to the point where Alberto
+ Savoia said in 2004 that if you were just getting into unit testing, 
+you were too late.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>The
+ popularity of JUnit meant many extensions popped up all over the place 
+in order to accommodate new requirements. For example, if you need to 
+seed a database with test data, execute operations on that database, and
+ then verify that it has the right contents <a class="jive-link-external-small" href="http://dbunit.sourceforge.net/" rel="nofollow">DbUnit</a>,
+ is your option. Have you ever had the need to verify the contents of an
+ XML file, or perhaps even compare it with an existing sample? <a class="jive-link-external-small" href="http://www.xmlunit.org/" rel="nofollow">XMLUnit</a> comes to the rescue. Or perhaps you would like to test out a shiny web service without having to rely on a real browser; <a class="jive-link-external-small" href="http://httpunit.sourceforge.net/" rel="nofollow">HttpUnit</a> did that before it was cool.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>As
+ good as JUnit was, the project stagnated in version 3 for many years. 
+The Java language added new features during that time; features such as 
+generics, varargs, annotations. JUnit 3 lacked support for these 
+features. Then a new contender appeared on scene: <a class="jive-link-external-small" href="http://testng.org/doc/index.html" rel="nofollow">TestNG</a>.
+ TestNG was able to take advantage of the new features available in 
+Java, offering more options for developers and enabling them to write 
+effective and productive tests more easily. The creators of TestNG also 
+made sure their project could consume JUnit extensions, in order to 
+avoid a split of the testing ecosystem and to embrace existing 
+codebases. TestNG delivered more bang for your buck, and by all means, 
+it should be the first choice for many.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Alas,
+ we know that’s not how the testing landscape looks today. Development 
+of JUnit was rekindled after some years, perhaps inspired by the amazing
+ work done by TestNG. JUnit 4 was reworked from the ground up, taking 
+advantage of language features added in Java 5 and also taking 
+inspiration from TestNG. Today, JUnit continues to be the dominant 
+testing framework. There’s even an upcoming version, <a class="jive-link-external-small" href="http://junit.org/junit5" rel="nofollow">JUnit 5</a>, that harnesses the power of lambda expressions and other new language features available since Java 8.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>And we have just covered the traditional Java-based testing frameworks. We could expand our search to <a class="jive-link-external-small" href="https://en.wikipedia.org/wiki/Behavior-driven_development" rel="nofollow">behavior-driven development (BDD)</a> frameworks such as <a class="jive-link-external-small" href="http://jbehave.org/" rel="nofollow">JBehave</a> and <a class="jive-link-external-small" href="https://github.com/cucumber/cucumber-jvm" rel="nofollow">Cucumber-JVM</a>. We can’t speak about BDD without mentioning its creator, <a class="jive-link-external-small" href="https://twitter.com/tastapod" rel="nofollow">Dan North</a>, who just recently released a new testing extension inspired by the testing support found in the Go language. Have a look at <a class="jive-link-external-small" href="https://gitlab.com/tastapod/jgotesting" rel="nofollow">JGoTesting</a>. Personally I’d choose another option named <a class="jive-link-external-small" href="http://spockframework.org/" rel="nofollow">Spock</a>.
+ You can think of Spock as a testing DSL. You write Spock specifications
+ (or tests, if you will) using Groovy code. Spock is also 
+JUnit-compatible, meaning many extensions can be reused. And if we’re 
+opening the door for other Java Virtual Machine (JVM) languages, then 
+you might also be interested in what <a class="jive-link-external-small" href="http://www.scalatest.org/" rel="nofollow">ScalaTest</a> and <a class="jive-link-external-small" href="https://jetbrains.github.io/spek" rel="nofollow">Spek</a> bring to the table.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>All this being said, we’ll stick with what most people might find familiar and continue with JUnit for now.</p><h2><a name="_testing_the_controller"></a>Testing the Controller</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Let’s
+ begin by testing the controller code. If you remember from the previous
+ part, the controller’s responsibility is to react to user input, issue a
+ network call on a thread different from the UI thread, and then update 
+the UI when results are available. In the case of an error or an 
+unexpected problem, the controller will trigger an event that will be 
+handled by another component in an asynchronous way. The code looks like
+ Listing 1:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><!--[CodeBlockStart:c5cc11e1-5384-460f-8ed3-e79dd20aa81d][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;AppController&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;AppModel&nbsp;model;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;Github&nbsp;github;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;ApplicationEventBus&nbsp;eventBus;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;loadRepositories()&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model.setState(RUNNING);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;github.repositories(model.getOrganization())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.done(model.getRepositories()::addAll)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.fail(throwable&nbsp;-&gt;&nbsp;eventBus.publishAsync(<span class="keyword">new</span><span>&nbsp;ThrowableEvent(throwable)))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.always((state,&nbsp;resolved,&nbsp;rejected)&nbsp;-&gt;&nbsp;model.setState(READY));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre class="java" name="code" style="display: none;">public class AppController {&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; @Inject private AppModel model;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; @Inject private Github github;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; @Inject private ApplicationEventBus eventBus;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; public void loadRepositories() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model.setState(RUNNING);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; github.repositories(model.getOrganization())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .done(model.getRepositories()::addAll)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .fail(throwable -&gt; eventBus.publishAsync(new ThrowableEvent(throwable)))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .always((state, resolved, rejected) -&gt; model.setState(READY));&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; } 
+}
+</pre><!--[CodeBlockEnd:c5cc11e1-5384-460f-8ed3-e79dd20aa81d]--><div style="display:none;"></div><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><strong>Listing 1. <code>AppController.java</code></strong></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>The
+ controller requires three collaborators in order to fulfill its 
+responsibilities. Somehow these collaborators need to be initialized 
+when you are testing the controller. You could say that, given the size 
+of the application and its current complexity, it wouldn’t be much of a 
+problem to manually create the required instances and inject them. 
+That’s the easy way out, and we very well know that it’s hard to resist 
+the siren’s call of the easy way. It usually gets us in trouble down the
+ road, though. The simpler way, on the other hand, would give us better 
+results. However, the simpler way is obtained through a complex set of 
+steps of carefully choosing alternatives until we can distill the code 
+into its shortest, more readable version.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>What
+ do we do now? We know we’ll use JUnit as the base test framework, so 
+chalk that one down. We know that if we follow proper unit testing 
+practices, we must test the controller in isolation, making sure its 
+collaborators are faked out, or better yet, mocked. Of the several 
+choices we have in the Java space for mocking, one project rises to the 
+top: <a class="jive-link-external-small" href="http://mockito.org/" rel="nofollow">Mockito</a>.
+ Mockito uses a neat feature found in Java named proxies. It can 
+dynamically create type-safe proxies of a particular type in order to 
+intercept method calls. These method calls can be primed with canned 
+results or fake data, ready to be triggered when the class under test 
+(in our current case, the controller) invokes the methods. The following
+ snippet shows how a mocked <code>GitHub</code> instance can be configured with a canned result, and then verified after the controller invokes it:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><!--[CodeBlockStart:b51ae942-8251-44cb-af9b-42ab4c1f3985][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="comment">//&nbsp;given:</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>Collection&lt;Repository&gt;&nbsp;repositories&nbsp;=&nbsp;TestHelper.createSampleRepositories();&nbsp;&nbsp;</span></li><li class="alt"><span>Promise&lt;Collection&lt;Repository&gt;,&nbsp;Throwable,&nbsp;Void&gt;&nbsp;promise&nbsp;=&nbsp;<span class="keyword">new</span><span>&nbsp;DeferredObject&lt;Collection&lt;Repository&gt;,&nbsp;Throwable,&nbsp;Void&gt;().resolve(repositories);&nbsp;&nbsp;</span></span></li><li class=""><span>when(github.repositories(ORGANIZATION)).thenReturn(promise);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span><span class="comment">//&nbsp;when:</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>model.setOrganization(ORGANIZATION);&nbsp;&nbsp;</span></li><li class=""><span>controller.loadRepositories();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span><span class="comment">//&nbsp;then:</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>assertThat(model.getRepositories(),&nbsp;hasSize(<span class="number">3</span><span>));&nbsp;&nbsp;</span></span></li><li class=""><span>assertThat(model.getRepositories(),&nbsp;equalTo(repositories));&nbsp;&nbsp;</span></li><li class="alt"><span>verify(github,&nbsp;only()).repositories(ORGANIZATION);&nbsp;&nbsp;</span></li></ol></div><pre class="java" name="code" style="display: none;">// given:
+Collection&lt;Repository&gt; repositories = TestHelper.createSampleRepositories();
+Promise&lt;Collection&lt;Repository&gt;, Throwable, Void&gt; promise = new DeferredObject&lt;Collection&lt;Repository&gt;, Throwable, Void&gt;().resolve(repositories);
+when(github.repositories(ORGANIZATION)).thenReturn(promise);
+
+// when:
+model.setOrganization(ORGANIZATION);
+controller.loadRepositories();
+
+// then:
+assertThat(model.getRepositories(), hasSize(3));
+assertThat(model.getRepositories(), equalTo(repositories));
+verify(github, only()).repositories(ORGANIZATION);
+</pre><!--[CodeBlockEnd:b51ae942-8251-44cb-af9b-42ab4c1f3985]--><div style="display:none;"></div><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>First,
+ the mock is configured for an specific method call and argument. The 
+mock returns a predefined value when that combination is triggered. The 
+mock is verified once checks performed on the class under test have been
+ cleared. You can specify expected cardinality and order of invocations 
+during verification; thus, a test may fail if there are too many or too 
+few invocations, and also if the invocations were triggered in the wrong
+ order.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>This 
+is great, but we’re missing one last thing. The whole application is 
+glued together using Google Guice; as we saw, the controller class 
+requires its collaborators to be injected by Guice. We need to find a 
+way to inject the mock collaborators during testing. Fortunately there’s
+ a handy JUnit extension that combines Guice and Mockito together: it’s 
+called <a class="jive-link-external-small" href="https://github.com/ArcBees/Jukito" rel="nofollow">Jukito</a>. There are three things that Jukito will do for you:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><ul><li>It
+ enables dependency injection on the test case itself. This means you 
+can annotate fields and methods belonging to the test case with <code>@Inject</code>.</li><li>It
+ automatically mock types when an explicit binding is not provided. 
+That’s right: mocks materialize immediately and are available via the 
+dependency injection container.</li><li>It overrides bindings using a custom module.</li></ul><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Jukito
+ is enabled on a test case by configuring a particular runner. Runners 
+are one of the many extension points offered by JUnit’s API. Listing 2 
+shows how the full test case looks when we want to test out the happy 
+path.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><!--[CodeBlockStart:a593b150-d3bb-4b3d-9538-142b62e3fcfd][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="annotation">@RunWith</span><span>(JukitoRunner.</span><span class="keyword">class</span><span>)&nbsp;&nbsp;</span></span></li><li class=""><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;AppControllerTest&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;</span><span class="keyword">final</span><span>&nbsp;String&nbsp;ORGANIZATION&nbsp;=&nbsp;</span><span class="string">"foo"</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;AppController&nbsp;controller;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;AppModel&nbsp;model;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="annotation">@Test</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;happyPath(Github&nbsp;github)&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="comment">//&nbsp;given:</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;Collection&lt;Repository&gt;&nbsp;repositories&nbsp;=&nbsp;TestHelper.createSampleRepositories();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;Promise&lt;Collection&lt;Repository&gt;,&nbsp;Throwable,&nbsp;Void&gt;&nbsp;promise&nbsp;=&nbsp;<span class="keyword">new</span><span>&nbsp;DeferredObject&lt;Collection&lt;Repository&gt;,&nbsp;Throwable,&nbsp;Void&gt;().resolve(repositories);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;when(github.repositories(ORGANIZATION)).thenReturn(promise);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="comment">//&nbsp;when:</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;model.setOrganization(ORGANIZATION);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;controller.loadRepositories();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="comment">//&nbsp;then:</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;assertThat(model.getRepositories(),&nbsp;hasSize(<span class="number">3</span><span>));&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;assertThat(model.getRepositories(),&nbsp;equalTo(repositories));&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;verify(github,&nbsp;only()).repositories(ORGANIZATION);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre class="java" name="code" style="display: none;">@RunWith(JukitoRunner.class)
+public class AppControllerTest {
+&nbsp; private static final String ORGANIZATION = "foo";
+
+&nbsp; @Inject private AppController controller;
+&nbsp; @Inject private AppModel model;
+
+&nbsp; @Test
+&nbsp; public void happyPath(Github github) {
+&nbsp; // given:
+&nbsp; Collection&lt;Repository&gt; repositories = TestHelper.createSampleRepositories();
+&nbsp; Promise&lt;Collection&lt;Repository&gt;, Throwable, Void&gt; promise = new DeferredObject&lt;Collection&lt;Repository&gt;, Throwable, Void&gt;().resolve(repositories);
+&nbsp; when(github.repositories(ORGANIZATION)).thenReturn(promise);
+
+&nbsp; // when:
+&nbsp; model.setOrganization(ORGANIZATION);
+&nbsp; controller.loadRepositories();
+
+&nbsp; // then:
+&nbsp; assertThat(model.getRepositories(), hasSize(3));
+&nbsp; assertThat(model.getRepositories(), equalTo(repositories));
+&nbsp; verify(github, only()).repositories(ORGANIZATION);
+&nbsp; }
+}
+</pre><!--[CodeBlockEnd:a593b150-d3bb-4b3d-9538-142b62e3fcfd]--><div style="display:none;"></div><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><strong>Listing 2. <code>AppControllerTest.java</code>: happy path</strong></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Let’s deconstruct this test step by step. First, we mark it as a Jukito-enabled test case by annotating it with <code>@RunWith(JukitoRunner.class)</code>;
+ this tells Jukito to properly initialize the test case and perform the 
+required injection. Notice that we have defined two injection points: 
+one for the class under test itself (the controller)and another for one 
+of its collaborators (the model). We can safely use a real <code>SampleModel</code> instance here, because this particular type defines JavaFX properties and no additional behavior.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Next, have a look at the definition of the <code>happyPath</code> method. It takes a single argument of type <code>Github</code>.
+ We did not define an injection point for this type as we did for the 
+previous fields. This instructs Jukito to automatically create a mock 
+for that type. The mock is given to the test method as an argument, so 
+that we can configure its expectations, but it’s also injected into the 
+controller instance because the controller has an injection point that 
+matches the given type—neat! This means our class under test is fully 
+configured now, and this includes a mock for the <code>ApplicationEventBus</code>
+ type that the controller defines as an injection point, although we 
+don’t make use of that mock in this test. Notice the use of <a class="jive-link-external-small" href="http://hamcrest.org/JavaHamcrest" rel="nofollow">Hamcrest</a> matchers in the assertions.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>We
+ should get in a green bar if we run the test as it stands right now. 
+But don’t trust it yet! Did the test pass because it tested the right 
+behavior or because there was no actual test at all and we just fooled 
+ourselves? In situations like this, I always go with the following 
+adage: "never trust a test you haven’t seen fail at least once." To 
+verify that we have the correct test code it would be as simple as 
+changing one of the assertions, for example, the one that checks the 
+size of the returned collection to exactly 3. Change that number to 
+something else and rerun the test. Did it break? Hooray! We’ve got it. 
+Fix the number back to 3 and rerun the test. Did you get a green bar 
+again? Awesome! We’re in business.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>We’re
+ ready to move on to the next step which would be testing the failure 
+path. This can be achieved by throwing an exception at the right time. 
+We can rely on JDeferred’s <code>DeferredObject</code> to configure the return value that we need. We’re also going to rely on a real implementation of the <code>ApplicationEventBus</code>,
+ thus forcing us to take multiple threads into account. If you remember 
+how the controller’s code looks, it triggers an event when an error is 
+sent back from the promise. This event is triggered asynchronously from 
+the current point of execution; the controller waits for nobody and the 
+event is handled in a different thread. Our test must be able to wait 
+for a certain condition to be met or fail in the process. Testing this 
+scenario is cumbersome to say the least; it’s likely that many of us 
+reach for the easy way and litter the test code with calls to <code>Thread.sleep()</code>. Deep down, we know there has to be a better way, and that way my friend is <a class="jive-link-external-small" href="https://github.com/awaitility/awaitility" rel="nofollow">Awaitility</a>.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Awaitility has been engineered to enable you to avoid using <code>Thread.sleep()</code> in your tests. Its API is Java 8-friendly, thus enabling you to use lambda expressions to define conditions or use <a class="jive-link-external-small" href="http://hamcrest.org/JavaHamcrest" rel="nofollow">Hamcrest</a>
+ matchers, too. The basic idea is that you set up a condition to be 
+evaluated at some point in time. When the time comes, the condition is 
+either successful (and so the test continues) or it fails (and the test 
+fails). You may specify timeouts, minimum and/or maximum time elapsed, 
+and more. Listing 3 shows how the test for the failure scenario looks 
+when we add Awaitility into the mix.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><!--[CodeBlockStart:47864899-5889-4833-a009-a8a88c07a8ed][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="annotation">@RunWith</span><span>(JukitoRunner.</span><span class="keyword">class</span><span>)&nbsp;&nbsp;</span></span></li><li class=""><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;AppControllerTest&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;</span><span class="keyword">final</span><span>&nbsp;String&nbsp;ORGANIZATION&nbsp;=&nbsp;</span><span class="string">"foo"</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;AppController&nbsp;controller;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;AppModel&nbsp;model;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;ApplicationEventBus&nbsp;eventBus;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Test</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;failurePath(Github&nbsp;github)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="comment">//&nbsp;given:</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;ApplicationEventHandlerStub&nbsp;eventHandler&nbsp;=&nbsp;<span class="keyword">new</span><span>&nbsp;ApplicationEventHandlerStub();&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;eventBus.subscribe(eventHandler);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;Throwable&nbsp;exception&nbsp;=&nbsp;<span class="keyword">new</span><span>&nbsp;RuntimeException(</span><span class="string">"boom"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;Promise&lt;Collection&lt;Repository&gt;,&nbsp;Throwable,&nbsp;Void&gt;&nbsp;promise&nbsp;=&nbsp;<span class="keyword">new</span><span>&nbsp;DeferredObject&lt;Collection&lt;Repository&gt;,&nbsp;Throwable,&nbsp;Void&gt;().reject(exception);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;when(github.repositories(ORGANIZATION)).thenReturn(promise);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="comment">//&nbsp;when:</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;model.setOrganization(ORGANIZATION);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;controller.loadRepositories();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;await().timeout(<span class="number">2</span><span>,&nbsp;SECONDS).until(eventHandler::getEvent,&nbsp;notNullValue());&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="comment">//&nbsp;then:</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;assertThat(model.getRepositories(),&nbsp;hasSize(<span class="number">0</span><span>));&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;assertThat(eventHandler.getEvent().getThrowable(),&nbsp;equalTo(exception));&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;verify(github,&nbsp;only()).repositories(ORGANIZATION);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;ApplicationEventHandlerStub&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="annotation">@Getter</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;ThrowableEvent&nbsp;event;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Handler</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;handleThrowable(ThrowableEvent&nbsp;event)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">this</span><span>.event&nbsp;=&nbsp;event;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre class="java" name="code" style="display: none;">@RunWith(JukitoRunner.class)
+public class AppControllerTest {
+&nbsp; private static final String ORGANIZATION = "foo";
+
+&nbsp; @Inject private AppController controller;
+&nbsp; @Inject private AppModel model;
+&nbsp; @Inject private ApplicationEventBus eventBus;
+
+&nbsp; @Test
+&nbsp; public void failurePath(Github github) {
+&nbsp; // given:
+&nbsp; ApplicationEventHandlerStub eventHandler = new ApplicationEventHandlerStub();
+&nbsp; eventBus.subscribe(eventHandler);
+&nbsp; Throwable exception = new RuntimeException("boom");
+&nbsp; Promise&lt;Collection&lt;Repository&gt;, Throwable, Void&gt; promise = new DeferredObject&lt;Collection&lt;Repository&gt;, Throwable, Void&gt;().reject(exception);
+&nbsp; when(github.repositories(ORGANIZATION)).thenReturn(promise);
+
+&nbsp; // when:
+&nbsp; model.setOrganization(ORGANIZATION);
+&nbsp; controller.loadRepositories();
+&nbsp; await().timeout(2, SECONDS).until(eventHandler::getEvent, notNullValue());
+
+&nbsp; // then:
+&nbsp; assertThat(model.getRepositories(), hasSize(0));
+&nbsp; assertThat(eventHandler.getEvent().getThrowable(), equalTo(exception));
+&nbsp; verify(github, only()).repositories(ORGANIZATION);
+&nbsp; }
+
+&nbsp; public static class ApplicationEventHandlerStub {
+&nbsp; @Getter
+&nbsp; private ThrowableEvent event;
+
+&nbsp; @Handler
+&nbsp; public void handleThrowable(ThrowableEvent event) {
+&nbsp; this.event = event;
+&nbsp; }
+&nbsp; }
+}
+</pre><!--[CodeBlockEnd:47864899-5889-4833-a009-a8a88c07a8ed]--><div style="display:none;"></div><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><strong>Listing 3. <code>AppControllerTest.java</code>: failure path</strong></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>We define an injection point for <code>ApplicationEventBus</code> because we want to use the real deal. The test method receives a mocked instance of <code>Github</code>,
+ just as we did in the happy-path scenario. Next, we create a witness 
+for the triggered event and register it with the event bus. The witness 
+type is a plain box around the event we’re interested in; thus, we can 
+use Lombok to generate the required boilerplate code. We’ll use the 
+witness later in the test as part of the condition we must write. 
+Following up is setting up the expected exception to be thrown.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Moving
+ your attention to the stimuli block, did you notice the comments 
+resembling labels? This style comes in handy when moving to Spock-based 
+specifications. This is where we put the condition to the test, pardon 
+the pun. The important line is this one:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>await().timeout(2, SECONDS).until(eventHandler::getEvent, notNullValue());</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>This
+ code tells the test case to wait for a maximum of 2 seconds to fail if 
+the condition has not succeeded. It’s worth mentioning that the 
+condition may be evaluated before the timeout runs out. The first 
+argument to the <code>until()</code> call is of type <code>Callable</code>.
+ I’m so glad we can use lambda expressions— even better, method 
+references—with Awaitility’s API, because that leads to very concise and
+ readable code. The second argument is a <code>Matcher</code>; we grab 
+one from the big collection of predefined matchers coming from Hamcrest.
+ All that’s left to do now is to write the proper assertions and verify 
+mocked invocations. These are pretty straightforward given the 
+following:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><ul><li>There
+ should not be a list of results returned from the controller 
+invocation. We didn’t set any predefined values, but just in case we 
+check, we get no results at all.</li><li>The thrown exception should 
+have been caught by the event handler (this is checked by the 
+condition’s not-null matcher), but it should also be of the right type 
+and have the expected values.</li><li>The GitHub mock is verified exactly as we did before.</li></ul><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>We
+ now have a test case that’s able to check both the happy and failure 
+paths of execution. Perhaps you can come up with additional tests that 
+might be missing. Looking back to what we just accomplished, some will 
+claim that what we wrote is not a <em>pure</em> unit test, because we 
+rely on some real collaborators and a dependency injection container. 
+Technically they’d be correct; this test sits somewhere in between unit 
+and integration test. And that’s … a good thing. It’s OK to lean into 
+one type more than the other if it gets the job done. But just to be 
+fair we’ll cover an integration test in the next section.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2><a name="_integration_testing"></a>Integration Testing</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Let’s try to test the implementation of the <code>Github</code> API. You might remember its implementation looks like Listing 4:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><!--[CodeBlockStart:de40616a-3cf9-4dcb-8366-181ce963e9b8][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;GithubImpl&nbsp;</span><span class="keyword">implements</span><span>&nbsp;Github&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;GithubAPI&nbsp;api;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;DeferredManager&nbsp;deferredManager;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Override</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;Promise&lt;Collection&lt;Repository&gt;,&nbsp;Throwable,&nbsp;Void&gt;&nbsp;repositories(</span><span class="keyword">final</span><span>&nbsp;String&nbsp;name)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;deferredManager.when(()&nbsp;-&gt;&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;Response&lt;List&lt;Repository&gt;&gt;&nbsp;response&nbsp;=&nbsp;api.repositories(name).execute();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(response.isSuccess())&nbsp;{&nbsp;</span><span class="keyword">return</span><span>&nbsp;response.body();&nbsp;}&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">throw</span><span>&nbsp;</span><span class="keyword">new</span><span>&nbsp;IllegalStateException(response.message());&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;});&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li></ol></div><pre class="java" name="code" style="display: none;">public class GithubImpl implements Github {
+&nbsp; @Inject private GithubAPI api;
+&nbsp; @Inject private DeferredManager deferredManager;
+
+&nbsp; @Override
+&nbsp; public Promise&lt;Collection&lt;Repository&gt;, Throwable, Void&gt; repositories(final String name) {
+&nbsp; return deferredManager.when(() -&gt; {
+&nbsp; Response&lt;List&lt;Repository&gt;&gt; response = api.repositories(name).execute();
+&nbsp; if (response.isSuccess()) { return response.body(); }
+&nbsp; throw new IllegalStateException(response.message());
+&nbsp; });
+&nbsp; }
+}
+</pre><!--[CodeBlockEnd:de40616a-3cf9-4dcb-8366-181ce963e9b8]--><div style="display:none;"></div><p><strong>Listing 4. <code>GithubImpl.java</code></strong></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>An instance of this type depends on the Retrofit-powered proxy created around the <code>GithubAPI</code> type shown in Listing 5:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><!--[CodeBlockStart:8046b180-aa02-4a8a-afb1-ded3aec6b046][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">interface</span><span>&nbsp;GithubAPI&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;String&nbsp;GITHUB_API_URL_KEY&nbsp;=&nbsp;<span class="string">"GITHUB_API_URL"</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="annotation">@GET</span><span>(</span><span class="string">"/orgs/{organization}/repos"</span><span>)&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;Call&lt;List&lt;Repository&gt;&gt;&nbsp;repositories(<span class="annotation">@Path</span><span>(</span><span class="string">"organization"</span><span>)&nbsp;String&nbsp;organization);&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre class="java" name="code" style="display: none;">public interface GithubAPI {
+&nbsp; String GITHUB_API_URL_KEY = "GITHUB_API_URL";
+
+&nbsp; @GET("/orgs/{organization}/repos")
+&nbsp; Call&lt;List&lt;Repository&gt;&gt; repositories(@Path("organization") String organization);
+}
+</pre><!--[CodeBlockEnd:8046b180-aa02-4a8a-afb1-ded3aec6b046]--><div style="display:none;"></div><p><strong>Listing 5. <code>GithubAPI.java</code></strong></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>This means that if we want to test <code>GithubImpl</code>,
+ we either mock out the proxy that Retrofit would create or find a way 
+to point the real proxy to a REST resource under our control. Mocking 
+out the Retrofit proxy sounds like overkill, because we must provide a 
+somewhat working <code>Call&lt;List&lt;Repository&gt;&gt;</code> that can respond to an <code>execute()</code> call that returns a <code>Response&lt;List&lt;Repository&gt;&gt;</code>
+ with the expected results. It’s turtles way down this route. Setting up
+ a REST resource starts to sound much better. The easy way would be to 
+fire up an HTTP server with an static JSON payload; however, can we be 
+sure the server will be running whenever we run the tests? This is when 
+an integrated solution starts to sound like the way to go. There are a 
+couple of options out there that enable you to set up a <em>fake</em> HTTP server, complete with canned responses and the ability to verify requests and responses. We’re going to take <a class="jive-link-external-small" href="http://wiremock.org/" rel="nofollow">WireMock</a> for a spin in our integration test.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Similar
+ to Mockito, WireMock let’s you define expectations before the stimuli 
+is triggered and verify those expectations after the stimuli has been 
+executed. However, expectations in WireMock take the form of requests, 
+where you can define the HTTP verb, URL pattern, header values, and 
+more. Once a match is done, you can also return an expected response.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>We’ll use Jukito again to configure our test case, and pair it up with a JUnit <code>@Rule</code> than sets up WireMock. Listing 6 shows both the happy and failure paths, similar to what was done with the controller:</p><!--[CodeBlockStart:a62ead1b-62f9-452e-8846-b4e3fb861362][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="annotation">@RunWith</span><span>(JukitoRunner.</span><span class="keyword">class</span><span>)&nbsp;&nbsp;</span></span></li><li class=""><span><span class="annotation">@UseModules</span><span>({GithubImplTest.AppTestModule.</span><span class="keyword">class</span><span>})&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;GithubImplTest&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;</span><span class="keyword">final</span><span>&nbsp;String&nbsp;ORGANIZATION&nbsp;=&nbsp;</span><span class="string">"foo"</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="annotation">@Rule</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;WireMockRule&nbsp;wireMockRule&nbsp;=&nbsp;</span><span class="keyword">new</span><span>&nbsp;WireMockRule(</span><span class="number">8080</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;ObjectMapper&nbsp;objectMapper;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="annotation">@Inject</span><span>&nbsp;</span><span class="keyword">private</span><span>&nbsp;Github&nbsp;github;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="annotation">@Test</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;happyPath()&nbsp;</span><span class="keyword">throws</span><span>&nbsp;Exception&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="comment">//&nbsp;given:</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;Collection&lt;Repository&gt;&nbsp;repositories&nbsp;=&nbsp;createSampleRepositories();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;stubFor(get(urlEqualTo(<span class="string">"/orgs/"</span><span>&nbsp;+&nbsp;ORGANIZATION&nbsp;+&nbsp;</span><span class="string">"/repos"</span><span>))&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;.willReturn(aResponse()&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;.withStatus(<span class="number">200</span><span>)&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;.withHeader(<span class="string">"Content-Type"</span><span>,&nbsp;</span><span class="string">"text/json"</span><span>)&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;.withBody(repositoriesAsJSON(repositories,&nbsp;objectMapper))));&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="comment">//&nbsp;when:</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;Promise&lt;Collection&lt;Repository&gt;,&nbsp;Throwable,&nbsp;Void&gt;&nbsp;promise&nbsp;=&nbsp;github.repositories(ORGANIZATION);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;await().timeout(<span class="number">2</span><span>,&nbsp;SECONDS).until(promise::state,&nbsp;equalTo(Promise.State.RESOLVED));&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="comment">//&nbsp;then:</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;promise.done(result&nbsp;-&gt;&nbsp;assertThat(result,&nbsp;equalTo(repositories)));&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;verify(getRequestedFor(urlEqualTo(<span class="string">"/orgs/"</span><span>&nbsp;+&nbsp;ORGANIZATION&nbsp;+&nbsp;</span><span class="string">"/repos"</span><span>)));&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Test</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;failurePath()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="comment">//&nbsp;given:</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;stubFor(get(urlEqualTo(<span class="string">"/orgs/"</span><span>&nbsp;+&nbsp;ORGANIZATION&nbsp;+&nbsp;</span><span class="string">"/repos"</span><span>))&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;.willReturn(aResponse()&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;.withStatus(<span class="number">500</span><span>)&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;.withStatusMessage(<span class="string">"Internal&nbsp;Error"</span><span>)));&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="comment">//&nbsp;when:</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;Promise&lt;Collection&lt;Repository&gt;,&nbsp;Throwable,&nbsp;Void&gt;&nbsp;promise&nbsp;=&nbsp;github.repositories(ORGANIZATION);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;await().timeout(<span class="number">2</span><span>,&nbsp;SECONDS).until(promise::state,&nbsp;equalTo(Promise.State.REJECTED));&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;<span class="comment">//&nbsp;then:</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;promise.fail(throwable&nbsp;-&gt;&nbsp;assertThat(throwable.getMessage(),&nbsp;equalTo(<span class="string">"Internal&nbsp;Error"</span><span>)));&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;verify(getRequestedFor(urlEqualTo(<span class="string">"/orgs/"</span><span>&nbsp;+&nbsp;ORGANIZATION&nbsp;+&nbsp;</span><span class="string">"/repos"</span><span>)));&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;AppTestModule&nbsp;</span><span class="keyword">extends</span><span>&nbsp;AppModule&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;<span class="annotation">@Override</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">protected</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;bindGithubApiUrl()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;bindConstant()&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;.annotatedWith(named(GithubAPI.GITHUB_API_URL_KEY))&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;.to(<span class="string">"http://localhost:8080"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre class="java" name="code" style="display: none;">@RunWith(JukitoRunner.class)
+@UseModules({GithubImplTest.AppTestModule.class})
+public class GithubImplTest {
+&nbsp; private static final String ORGANIZATION = "foo";
+
+&nbsp; @Rule
+&nbsp; public WireMockRule wireMockRule = new WireMockRule(8080);
+
+&nbsp; @Inject private ObjectMapper objectMapper;
+&nbsp; @Inject private Github github;
+
+&nbsp; @Test
+&nbsp; public void happyPath() throws Exception {
+&nbsp; // given:
+&nbsp; Collection&lt;Repository&gt; repositories = createSampleRepositories();
+&nbsp; stubFor(get(urlEqualTo("/orgs/" + ORGANIZATION + "/repos"))
+&nbsp; .willReturn(aResponse()
+&nbsp; .withStatus(200)
+&nbsp; .withHeader("Content-Type", "text/json")
+&nbsp; .withBody(repositoriesAsJSON(repositories, objectMapper))));
+
+&nbsp; // when:
+&nbsp; Promise&lt;Collection&lt;Repository&gt;, Throwable, Void&gt; promise = github.repositories(ORGANIZATION);
+&nbsp; await().timeout(2, SECONDS).until(promise::state, equalTo(Promise.State.RESOLVED));
+
+&nbsp; // then:
+&nbsp; promise.done(result -&gt; assertThat(result, equalTo(repositories)));
+&nbsp; verify(getRequestedFor(urlEqualTo("/orgs/" + ORGANIZATION + "/repos")));
+&nbsp; }
+
+&nbsp; @Test
+&nbsp; public void failurePath() {
+&nbsp; // given:
+&nbsp; stubFor(get(urlEqualTo("/orgs/" + ORGANIZATION + "/repos"))
+&nbsp; .willReturn(aResponse()
+&nbsp; .withStatus(500)
+&nbsp; .withStatusMessage("Internal Error")));
+
+&nbsp; // when:
+&nbsp; Promise&lt;Collection&lt;Repository&gt;, Throwable, Void&gt; promise = github.repositories(ORGANIZATION);
+&nbsp; await().timeout(2, SECONDS).until(promise::state, equalTo(Promise.State.REJECTED));
+
+&nbsp; // then:
+&nbsp; promise.fail(throwable -&gt; assertThat(throwable.getMessage(), equalTo("Internal Error")));
+&nbsp; verify(getRequestedFor(urlEqualTo("/orgs/" + ORGANIZATION + "/repos")));
+&nbsp; }
+
+&nbsp; public static class AppTestModule extends AppModule {
+&nbsp; @Override
+&nbsp; protected void bindGithubApiUrl() {
+&nbsp; bindConstant()
+&nbsp; .annotatedWith(named(GithubAPI.GITHUB_API_URL_KEY))
+&nbsp; .to("http://localhost:8080");
+&nbsp; }
+&nbsp; }
+}
+</pre><!--[CodeBlockEnd:a62ead1b-62f9-452e-8846-b4e3fb861362]--><div style="display:none;"></div><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><strong>Listing 6. <code>GithubImplTest.java</code></strong></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>All right—given that the test case is Jukito-based, we start again by annotating it with <code>@RunWith(JukitoRunner.class)</code>.
+ Next, we specify that we want to tweak how bindings are defined for 
+this test case. We want to use all production bindings except the one 
+that defines the URL that functions as the entry point for the REST 
+calls. We’ll define this module as an inner class of the test case 
+itself, a fairly common idiom found in this type of tests. Thus, we 
+annotate the test case with <code>@UseModules({GithubImplTest.AppTestModule.class})</code>. The implementation of <code>GithubImplTest.AppTestModule</code>
+ extends the module class that delivers production-ready bindings and 
+overrides a single binding, pointing the value to the URL WireMock will 
+set up during the test.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Next, we see the use of WireMock as JUnit <code>@Rule</code>.
+ This rule sets up the fake server before every test method, and it also
+ tears the server down after each test method has been executed. Inside 
+of each of the test methods, we set up the right expectations for the 
+particular case. In the happy path, we expect a URL of the form <code>"/orgs/${organization}/repos"</code>;
+ the expectation replies with a JSON payload when this URL matches an 
+incoming GET call. For the failure path, the expectation matches against
+ the same URL but returns a 500 error code and an error status message. 
+Next, we invoke the real Retrofit proxy, trusting that WireMock will 
+react at the appropriate time. We must rely on Awaitility again because 
+we’re dealing with operations that run in multiple threads—remember that
+ we’re making use of <code>DeferredManager</code> in order to create a <code>Promise</code> object; the body of the promise is executed on a background thread.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Once
+ the stimuli block has been executed, it's time for verifying the state 
+of the promise and the state of the expected WireMock invocations. Like 
+the other libraries we’ve seen so far (Mockito, Awaitility), WireMock 
+provides a set of static methods that can be used to compose a readable 
+set of expectations and verifications. It almost reads like plain text 
+while still being a type-safe Java-based DSL. Feel free to tweak the 
+values in order to make the tests fail at least once—remember not to 
+trust the first green bar you get!</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>That’s
+ all for now, because we’ve covered a lot of ground. Speaking of 
+coverage, the source code for this article contains code coverage 
+configuration via JaCoCo. You can obtain the report by running the 
+following Gradle tasks:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><pre>gradle test jacocoTestReport</pre><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>We’ll cover builds tools in a later installment of this series.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2><a name="_conclusion"></a>Conclusion</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>In
+ summary, testing our code is always a good thing to do, but sometimes 
+we can get in trouble with a particular testing scenario. Mockito 
+facilitates setting up fake collaborators, expectations, and mocks. 
+Jukito ups the ante by adding support for automatic mocks and Guice 
+support—an excellent choice when the production code relies on Guice as a
+ dependency injection container. Testing concurrency and multithreading 
+is always a pain, but Awaitility can reduce a big chunk of that pain. 
+Finally, WireMock can be used to set up a fake HTTP server that can 
+handle expectations in a similar way as Mockito does.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>To be covered in the next installment: handling paginated results and more tests.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2><a name="_see_also"></a>See Also</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><ul><li><a class="jive-link-external-small" href="https://github.com/aalmiray/javatrove/tree/master/github-api-01" rel="nofollow">Source code for this article</a></li><li>Libraries used for testing code:<br>- <a class="jive-link-external-small" href="http://junit.org/junit4" rel="nofollow">JUnit</a><br>- <a class="jive-link-external-small" href="http://testng.org/doc/index.html" rel="nofollow">TestNG</a><br>- <a class="jive-link-external-small" href="http://hamcrest.org/JavaHamcrest" rel="nofollow">Hamcrest</a><br>- <a class="jive-link-external-small" href="http://mockito.org/" rel="nofollow">Mockito</a><br>- <a class="jive-link-external-small" href="https://github.com/ArcBees/Jukito" rel="nofollow">Jukito</a><br>- <a class="jive-link-external-small" href="https://github.com/awaitility/awaitility" rel="nofollow">Awaitility</a><br>- <a class="jive-link-external-small" href="http://wiremock.org/" rel="nofollow">WireMock</a></li><li>Libraries used for production code:<br>- <a class="jive-link-external-small" href="https://github.com/google/guice" rel="nofollow">Google Guice</a><br>- <a class="jive-link-external-small" href="http://square.github.io/retrofit" rel="nofollow">Retrofit</a><br>- <a class="jive-link-external-small" href="https://github.com/FasterXML/jackson" rel="nofollow">Jackson</a><br>- <a class="jive-link-external-small" href="https://projectlombok.org/features/index.html" rel="nofollow">Lombok</a><br>- <a class="jive-link-external-small" href="http://jdeferred.org/" rel="nofollow">JDeferred</a><br>- <a class="jive-link-external-small" href="https://github.com/bennidi/mbassador" rel="nofollow">MBassador</a></li></ul><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2><a name="_about_the_author"></a>About the Author</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Andres
+ is a Java/Groovy developer and a Java Champion with more than 16 years 
+of experience in software design and development. He has been involved 
+in web and desktop application development since the early days of Java.
+ Andres is a true believer in open source and has participated on 
+popular projects such as Groovy, Griffon, and DbUnit, as well as 
+starting his own projects (Json-lib, EZMorph, GraphicsBuilder, 
+JideBuilder). He is a founding member of the Griffon framework and 
+Hackergarten community event. Andres maintains a <a class="jive-link-external-small" href="http://jroller.com/aalmiray" rel="nofollow">blog</a> and you can reach him at <a class="jive-link-external-small" href="https://twitter.com/aalmiray" rel="nofollow">@aalmiray</a>.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2>Join the Conversation</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Join the Java community conversation on <a class="jive-link-external-small" href="https://www.facebook.com/ilovejava" rel="nofollow">Facebook</a>, <a class="jive-link-external-small" href="https://twitter.com/#!/java" rel="nofollow">Twitter</a>, and the <a class="jive-link-external-small" href="https://blogs.oracle.com/java/" rel="nofollow">Oracle Java Blog</a>!</p></div><!-- [DocumentBodyEnd:f849168c-e4fc-4054-97cf-b67d840f9d8e] -->
+
+<!-- BEGIN attachments -->
+<!-- END attachments -->
+
+<div id="previewable-binary-viewer"></div>
+    </section>
+
+    <footer class="jive-content-footer clearfix font-color-meta">
+     
+        <span class="jive-content-footer-item">
+            20922&nbsp;Affichages
+        </span>
+
+
+
+
+    <!-- BEGIN content details -->
+
+
+
+
+        <span class="jive-content-footer-item jive-content-footer-categories">
+            <span class="jive-icon-sml jive-icon-folder"></span>
+Catégories:            <span class="jive-content-categories">
+            </span>
+        </span>
+
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+            <span class="jive-icon-sml jive-icon-tag"></span>Tags: <span id="jive-edit-inline-add-none" style="display:none;">aucun</span> <span style="display:none;" id="jive-edit-inline-placeholder"> (<a href="#" class="jive-edit-inline-tags-link">ajouter</a>)</span>
+
+            <span class="jive-thread-post-details-tags" id="jive-thread-post-details-tags_2M5Oxm">
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=java" title="Contenu marqué du tag java" aria-labelledby="tag-link-tooltip-0"><span role="presentation" aria-hidden="true">java</span><div id="tag-link-tooltip-0" class="j-508-label">Contenu marqué du tag java</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=lambda" title="Contenu marqué du tag lambda" aria-labelledby="tag-link-tooltip-1"><span role="presentation" aria-hidden="true">lambda</span><div id="tag-link-tooltip-1" class="j-508-label">Contenu marqué du tag lambda</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=otn" title="Contenu marqué du tag otn" aria-labelledby="tag-link-tooltip-2"><span role="presentation" aria-hidden="true">otn</span><div id="tag-link-tooltip-2" class="j-508-label">Contenu marqué du tag otn</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=java%20se" title="Contenu marqué du tag java se" aria-labelledby="tag-link-tooltip-3"><span role="presentation" aria-hidden="true">java se</span><div id="tag-link-tooltip-3" class="j-508-label">Contenu marqué du tag java se</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=java%209" title="Contenu marqué du tag java 9" aria-labelledby="tag-link-tooltip-4"><span role="presentation" aria-hidden="true">java 9</span><div id="tag-link-tooltip-4" class="j-508-label">Contenu marqué du tag java 9</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=otntecharticle" title="Contenu marqué du tag otntecharticle" aria-labelledby="tag-link-tooltip-5"><span role="presentation" aria-hidden="true">otntecharticle</span><div id="tag-link-tooltip-5" class="j-508-label">Contenu marqué du tag otntecharticle</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=java%20se%208" title="Contenu marqué du tag java se 8" aria-labelledby="tag-link-tooltip-6"><span role="presentation" aria-hidden="true">java se 8</span><div id="tag-link-tooltip-6" class="j-508-label">Contenu marqué du tag java se 8</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=lambda%20expressions" title="Contenu marqué du tag lambda expressions" aria-labelledby="tag-link-tooltip-7"><span role="presentation" aria-hidden="true">lambda expressions</span><div id="tag-link-tooltip-7" class="j-508-label">Contenu marqué du tag lambda expressions</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=java_se_9" title="Contenu marqué du tag java_se_9" aria-labelledby="tag-link-tooltip-8"><span role="presentation" aria-hidden="true">java_se_9</span><div id="tag-link-tooltip-8" class="j-508-label">Contenu marqué du tag java_se_9</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=otn_javase_articles_" title="Contenu marqué du tag otn_javase_articles_" aria-labelledby="tag-link-tooltip-9"><span role="presentation" aria-hidden="true">otn_javase_articles_</span><div id="tag-link-tooltip-9" class="j-508-label">Contenu marqué du tag otn_javase_articles_</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=otndeveloper" title="Contenu marqué du tag otndeveloper" aria-labelledby="tag-link-tooltip-10"><span role="presentation" aria-hidden="true">otndeveloper</span><div id="tag-link-tooltip-10" class="j-508-label">Contenu marqué du tag otndeveloper</div></a>,
+                <a href="https://community.oracle.com/community/groundbreakers/java/java_desktop/tags#/?tags=otnjava" title="Contenu marqué du tag otnjava" aria-labelledby="tag-link-tooltip-11"><span role="presentation" aria-hidden="true">otnjava</span><div id="tag-link-tooltip-11" class="j-508-label">Contenu marqué du tag otnjava</div></a>
+            </span>
+    </span>
+    <!-- END view/add/edit tags -->
+<!-- END content -->
+
+
+    </footer>
+</div>
+
+
+<!-- END document -->
+
+        <div class="jive-content-rating j-rc5 clearfix" data-guid="L1A8FAMMX5LKSW8ZA2NX4WZKNFQK32RB">
+
+<script type="text/javascript">
+    $j(document).ready(function() {
+
+        var i18n = {
+            avgUserRatingTitlei18n : "Moyenne des évaluations des utilisateurs",
+            avgUserRatingLabeli18n : "Moyenne des évaluations des utilisateurs",
+            rateRatingLabel : "classement",
+            myRatingLabel : "Votre classement :",
+            rateRatingsLabel : "classements",
+            ratingSavingText : "Enregistrement en cours…",
+            rateSavedText : "Modifications enregistrées.",
+            rateRatingSaved : "Classement enregistré !",
+            writeAReview : "Écrire une critique",
+            commentOnRating : "Commentaire sur votre classement",
+            formSubmitPleaseWait:'Veuillez patienter…'
+        };
+        var rteOptions = {
+            preset        : "mini-w-quote",
+            preferredMode : "advanced",
+            startMode     : "advanced",
+            mobileUI      : false,
+            communityName : 'Oracle Community',
+            height        : 200
+        };
+
+
+        new jive.Rate(14, 13291, 102, 1007145, 'doc', i18n, true, 'L1A8FAMMX5LKSW8ZA2NX4WZKNFQK32RB', rteOptions);
+    });
+
+</script>
+
+        <div class="jive-content-avgrating" tabindex="0" aria-labelledby="j-rating-score"><span class="j-508-label" id="j-rating-score">Moyenne des évaluations des utilisateurs: (5 sur 5) (1 classement)</span><div class="jive-content-avgrating-title">Moyenne des évaluations des utilisateurs</div><div class="jive-content-avgrating-score" title="Moyenne des évaluations des utilisateurs&nbsp;: 5 sur 5"><span class="j-508-label">Moyenne des évaluations des utilisateurs&nbsp;: 5 sur 5</span><span class="jive-icon-avgrating-1 jive-icon-med jive-icon-rate-avg-on"></span><span class="jive-icon-avgrating-2 jive-icon-med jive-icon-rate-avg-on"></span><span class="jive-icon-avgrating-3 jive-icon-med jive-icon-rate-avg-on"></span><span class="jive-icon-avgrating-4 jive-icon-med jive-icon-rate-avg-on"></span><span class="jive-icon-avgrating-5 jive-icon-med jive-icon-rate-avg-on"></span></div><div class="jive-content-rating-print" style="display: none;">5</div><div class="jive-content-avgrating-count">(1 classement)</div></div></div>
+
+<ul id="js-outcome-summary-container-102-1007145" class="js-outcome-summary-container j-outcome-summary-container js-ed-102-1007145" data-object-type="102" data-object-id="1007145" aria-label="Résumé des résultats" role="group"></ul>
+
+
+
+
+
+
+
+
+<!-- macro to display the generic warning about the content object being in moderation, abuse hidden, or rejected -->
+
+
+
+
+
+
+<div id="jive-rolled-up-comments" class="j-so-finalized-rollup j-rc4" style="display:none">
+    Ce contenu a été marqué comme étant finalisé.&nbsp;
+    <a id="jive-unroll-comments" class="j-so-finalized-unroll j-comment-count" href="#">
+Afficher                 2 commentaire(s)
+    </a>
+</div>
+
+<div id="jive-comment-tabs" class="j-comment-wrapper" xmlns="http://www.w3.org/1999/html">
+
+            <!-- BEGIN tabs -->
+            <header>
+                <h3>Commentaires</h3>
+            </header>
+
+            <ul class="j-comment-options">
+                    <li id="jive-comments-tab" class="jive-body-tab j-tab-selected">
+                        <a href="#">
+                                <span id="jive-comments-count" class="j-comment-count">2</span> commentaire(s)
+                        </a>
+                    </li>
+
+            </ul>
+            <!-- END tabs -->
+
+            <div id="jive-comments">
+
+
+
+
+
+
+
+<!-- macro to display the generic warning about the content object being in moderation, abuse hidden, or rejected -->
+
+
+
+<script type="text/javascript">
+
+    if ('comments' == 'comments') {
+       $j('#jive-comments-count').text('2');
+    }
+    else if ('comments' == 'backchannel') {
+        $j('#jive-authordiscussion-count').text('0');
+    }
+
+</script>
+
+
+<!-- Display comment bar depending on comment type -->
+<!-- Author comments tab (Doc specific) -->
+<!-- Regular Comments tab, non-document content types use this -->
+    <div class="j-comment-action-bar j-rc4 clearfix">
+    </div>
+<!-- End comment bar -->
+
+<!-- moderation feedback message -->
+<div id="success-moderation-edit" class="jive-content-moderation-box" style="display:none"></div>
+
+<!-- Wire up the treewalker and comments to iterate over -->
+        <!-- Begin regular comments and backchannel comments list -->
+        <div class="jive-comment-container clearfix j-rc4">
+    <!-- parentId == -1 when the comment does not have a parent -->
+    <!-- Begin Comment 995527-->
+
+
+
+    <ul class="jive-comment jive-comment-threaded jive-comment-indent-0">
+    <li class="reply j-anchor-target" id="comment-995527" data-object-type="105" data-object-id="995527">
+
+
+
+<a href="https://community.oracle.com/people/Ajit%20Kumar%20Singh" data-externalid="" data-username="Ajit%20Kumar%20Singh" data-avatarid="1029" class="j-avatar jiveTT-hover-user " data-userid="3258793" data-presence="null">
+    <img class="jive-avatar" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/32.png" data-avatarid="1029" data-username="Ajit%20Kumar%20Singh" data-height="32" alt="Ajit Kumar Singh" width="32" height="32" border="0">
+    <span class="j-status-levels j-gamification-status-level"><img src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/level2.png" alt="Explorer" title="Explorer"></span></a>
+                    <div class="jive-comment-arrow"></div>
+            <div class="jive-comment-content clearfix">
+                <div class="j-comment-header">
+
+                    <p class="jive-comment-meta font-color-meta-light">
+
+                    <span class="j-username-wrap">
+                        <a href="https://community.oracle.com/people/Ajit%20Kumar%20Singh" data-externalid="" data-username="Ajit%20Kumar%20Singh" data-avatarid="1029" id="jive-325879321078165315749087" data-userid="3258793" data-presence="null" class="jiveTT-hover-user jive-username-link">Ajit Kumar Singh</a>
+                    </span>
+                        <a href="#comment-995527" id="comment-modDate-995527" class="font-color-meta-light">6 nov. 2016 03:23</a>
+                    </p>
+
+                </div>
+                <div id="comment-body-995527">
+
+                        <!-- [DocumentBodyStart:a3253776-cad2-4628-8615-1b16beec7eda] --><div class="jive-rendered-content"><p>Best&nbsp; one </p></div><!-- [DocumentBodyEnd:a3253776-cad2-4628-8615-1b16beec7eda] -->
+                </div>
+<span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container font-color-okay" data-object-type="105" data-object-id="995527" data-helpful-count="0" data-overall-count="0" data-display-overall="false"></span>
+<ul class="js-outcome-badge-container j-outcome-badge-container js-ed-105-995527" data-object-type="105" data-object-id="995527" data-parent-object-type="102" data-parent-object-id="1007145" aria-label="Badges de résultats" aria-live="polite"></ul>
+                <ul class="j-comment-footer js-comment-footer clearfix">
+                    <li class="jive-comment-actions font-color-meta clearfix" data-comment-id="995527">
+
+
+<span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up jive-glyph-like"></span><span id="acclaim-container-105-995527" class="acclaim-container"><span id="jive-acclaim-like-container-105-995527" data-acclaim-count="0" data-can-apply="false" data-type="small" data-show-icon="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Recommandation <label class="j-508-label" id="showAcclaim-995527-105-count-label">Afficher 0 «&nbsp;j'aime&nbsp;»</label><a class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="995527" data-object-type="105" data-count="0" href="#" role="button" aria-labelledby="showAcclaim-995527-105-count-label" title="Afficher 0 «&nbsp;j'aime&nbsp;»">(0)</a> </span></span></span></span>
+
+                    </li>
+                    <li class="jive-comment-action-button font-color-meta-light clearfix">
+<a href="#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="105" data-object-id="995527" data-dom-actions="[]" data-parent-id="-1" data-root-community="Oracle Community">Actions <span class="j-ui-elem j-action-down-arrow"></span></a>                    </li>
+                </ul>
+        </div>
+
+        <!-- End Comment -->
+
+    </li>
+    
+    <!-- parentId == -1 when the comment does not have a parent -->
+    <!-- Begin Comment 1030374-->
+
+
+
+    <li class="reply j-anchor-target" id="comment-1030374" data-object-type="105" data-object-id="1030374">
+
+
+
+<a href="https://community.oracle.com/people/nikki_carol" data-externalid="" data-username="nikki_carol" data-avatarid="1022" class="j-avatar jiveTT-hover-user " data-userid="3736128" data-presence="null">
+    <img class="jive-avatar" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/32_002.png" data-avatarid="1022" data-username="nikki_carol" data-height="32" alt="nikki_carol" width="32" height="32" border="0">
+    <span class="j-status-levels j-gamification-status-level"><img src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/level1.png" alt="Newbie" title="Newbie"></span></a>
+                    <div class="jive-comment-arrow"></div>
+            <div class="jive-comment-content clearfix">
+                <div class="j-comment-header">
+
+                    <p class="jive-comment-meta font-color-meta-light">
+
+                    <span class="j-username-wrap">
+                        <a href="https://community.oracle.com/people/nikki_carol" data-externalid="" data-username="nikki_carol" data-avatarid="1022" id="jive-373612821078165327753759" data-userid="3736128" data-presence="null" class="jiveTT-hover-user jive-username-link">nikki_carol</a>
+                    </span>
+                        <a href="#comment-1030374" id="comment-modDate-1030374" class="font-color-meta-light">18 juil. 2018 07:21</a>
+                    </p>
+
+                </div>
+                <div id="comment-body-1030374">
+
+                        <!-- [DocumentBodyStart:ac08e5d0-5a3d-46a8-a1b0-22a5ea0f01be] --><div class="jive-rendered-content"><p>it's really good post!</p><p>The
+ GNU Trove library has two objectives: Provide "free" (as in "free 
+speech" and "free beer"), fast, lightweight implementations of the 
+java.util Collections API. ... This gap in the JDK is often addressed by
+ using the "wrapper" classes (<strong><a class="jive-link-external-small" href="http://oraclejavacentral.blogspot.com/p/oracle-java-tutorials.html" rel="nofollow">java.lang.Integer, java.lang.Float, etc.</a></strong>) with Object-based collections.</p><p>thanks for sharing...!!</p></div><!-- [DocumentBodyEnd:ac08e5d0-5a3d-46a8-a1b0-22a5ea0f01be] -->
+                </div>
+<span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container font-color-okay" data-object-type="105" data-object-id="1030374" data-helpful-count="0" data-overall-count="0" data-display-overall="false"></span>
+<ul class="js-outcome-badge-container j-outcome-badge-container js-ed-105-1030374" data-object-type="105" data-object-id="1030374" data-parent-object-type="102" data-parent-object-id="1007145" aria-label="Badges de résultats" aria-live="polite"></ul>
+                <ul class="j-comment-footer js-comment-footer clearfix">
+                    <li class="jive-comment-actions font-color-meta clearfix" data-comment-id="1030374">
+
+
+<span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up jive-glyph-like"></span><span id="acclaim-container-105-1030374" class="acclaim-container"><span id="jive-acclaim-like-container-105-1030374" data-acclaim-count="0" data-can-apply="false" data-type="small" data-show-icon="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Recommandation <label class="j-508-label" id="showAcclaim-1030374-105-count-label">Afficher 0 «&nbsp;j'aime&nbsp;»</label><a class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="1030374" data-object-type="105" data-count="0" href="#" role="button" aria-labelledby="showAcclaim-1030374-105-count-label" title="Afficher 0 «&nbsp;j'aime&nbsp;»">(0)</a> </span></span></span></span>
+
+                    </li>
+                    <li class="jive-comment-action-button font-color-meta-light clearfix">
+<a href="#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="105" data-object-id="1030374" data-dom-actions="[]" data-parent-id="-1" data-root-community="Oracle Community">Actions <span class="j-ui-elem j-action-down-arrow"></span></a>                    </li>
+                </ul>
+        </div>
+
+        <!-- End Comment -->
+
+    </li>
+    </ul>
+    
+            <div class="j-addComment-bottom clearfix">
+            </div>
+
+        </div>
+
+    <script type="text/javascript">
+        $j(function(){
+            jive.localexchange.emit("renderedContent");
+        });
+    </script>
+
+
+</div>
+
+            <div style="display:none;" id="jive-comment-post-block">
+
+                <!-- moderation warning -->
+                <!-- end moderation warning -->
+
+                <form method="post" action="javascript:void(0);" name="jive-comment-post-form" class="j-comment-form">
+                    <div class="jive-error-box" id="jive-comment-error-box" style="display:none">
+                        <p class="jive-error-message" id="jive-comment-error" style="display:none"></p>
+                    </div>
+                        <div class="jive-comment-post-anonymous">
+                            <div>
+                                <input id="comment-author" name="commentGuestName">
+                                <label for="comment-author">Nom</label>
+                            </div>
+                            <div>
+                                <input id="comment-email" name="commentGuestEmail">
+                                <label for="comment-email">Adresse e-mail</label>
+                            </div>
+                            <div>
+                                <input id="comment-url" name="commentGuestUrl">
+                                <label for="comment-url">Adresse du site Web</label>
+                            </div>
+                        </div>
+
+                    <input type="hidden" class="js-outcome-attachment" value="">
+                    <div>
+                        <textarea name="commentBody" id="wysiwygtext" rows="10" class="jive-comment-textarea"></textarea>
+                    </div>
+
+                    <div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div>
+
+<div class="j-rte-message js-rte-message"></div>                    <div class="jive-form-buttons">
+                        <input type="submit" name="post" class="j-btn-callout" value="Ajouter un commentaire">
+                        <input type="button" name="cancel" value="Annuler">
+                    </div>
+
+                </form>
+            </div>
+
+            <div style="display:none;" id="jive-comment-edit-block">
+                <form method="post" action="javascript:void(0);" name="jive-comment-edit-form" class="j-comment-form">
+                    <div class="jive-error-box" id="jive-comment-error-box" style="display:none">
+                        <p class="jive-error-text" id="jive-comment-error" style="display:none"></p>
+                    </div>
+                    <div class="jive-comment-post-anonymous">
+                        <div>
+                            <input name="name">
+                            <label for="name">Name
+                                <span>(Obligatoire)</span></label>
+                        </div>
+                        <div>
+                            <input name="email">
+                            <label for="email">Email Address
+                                <span>(Obligatoire, ne sera pas publié)</span></label>
+                        </div>
+                        <div>
+                            <input name="url">
+                            <label for="url">Adresse du site Web</label>
+                        </div>
+                    </div>
+                    <div>
+                        <textarea name="commentBody" id="wysiwygtext" rows="10" class="jive-comment-textarea">&lt;%= commentBody %&gt;</textarea>
+                    </div>
+
+                    <div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div>
+
+<div class="j-rte-message js-rte-message"></div>                    <div class="jive-form-buttons">
+                        <input type="submit" name="post" class="j-btn-callout" value="Enregistrer">
+                        <input type="button" name="cancel" value="Annuler">
+                    </div>
+
+                </form>
+            </div>
+        </div> <!-- / .jive-comment-wrapper -->
+
+
+
+<!-- draft deps -->
+
+
+
+
+
+
+    <form id="documentDeleteForm" method="post" action="/docs/DOC-1007145/delete">
+        <input type="hidden" name="jive.token.name" value="document.delete.DOC-1007145">
+        <input type="hidden" name="document.delete.DOC-1007145" value="[placeholder]">
+    </form>
+
+    <div class="jive-modal jive-modal-narrow" id="jive-modal-delete-doc">
+        <header><h2 class="jive-modal-title jive-modal-title-delete-doc">Supprimer le document</h2></header>
+        <a href="#" class="j-modal-close-top close" title="Fermer la fenêtre contextuelle">Fermer <span class="jive-icon-glyph icon-close-med" role="img"></span></a>
+
+        <div class="jive-modal-content jive-modal-delete-doc clearfix">
+
+            <p><span class="jive-icon-med jive-icon-warn"></span>Êtes-vous certain(e) de vouloir supprimer ce document ?</p>
+
+            <div class="jive-form-buttons">
+
+                <input id="doc-delete-submit-button" type="submit" class="j-btn-callout" name="delete" value="Supprimer">
+                <input id="doc-delete-close-button" type="submit" class="jive-modal-close close" value="Annuler">
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol-container" class="j-column j-column-s j-content-extras j-loaded">
+
+
+    <a href="#" id="mobile-sidenav-btn"></a>
+
+
+
+
+
+
+
+<div class="j-box j-box-actions" role="toolbar" aria-labelledby="jive-action-sidebar-tab-header_document-actions-tab" style="display: none;">
+    <header>
+        <h4 id="jive-action-sidebar-tab-header_document-actions-tab">Actions</h4>
+    </header>
+    <div id="jive-action-sidebar_document-actions-tab" class="j-box-body">
+
+        <div id="jive-action-sidebar-tab-_document-actions-tab" class="jive-action-sidebar-tab-first" style="display: none;">
+
+
+
+            <ul id="jive-action-sidebar-tab-list_document-actions-tab" class=" j-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+
+            <script type="text/javascript">
+                $j(document).ready(function() {
+                    $j('#jive-action-sidebar-tab-_document-actions-tab').hide();
+                });
+            </script>
+    </div>
+    </div>
+
+
+<!-- /.j-box-actions -->
+    <script type="text/javascript">
+        $j(document).ready(function() {
+            $j('[id^=jive-action-sidebar_]').each(function() {
+                var me = $j(this);
+                if (me.find("ul[id^=jive-action-sidebar-tab-list_] > li").length == 0) {
+                    me.closest('.j-box-actions').hide();
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+<!-- MLT -->
+
+
+    
+    
+
+<!-- requires plugin installation -->
+        </div>
+        <!-- END sidebar column -->
+
+
+    </div>
+
+</div></section>
+    <div id="j-footer-wrap" class="j-js-footer-wrap"><footer id="j-footer" role="contentinfo"><div class="java-footer"><div class="oracle-footer-nav"><a class="footer-about" href="https://community.oracle.com/docs/DOC-890454"><br>About Oracle Technology Network (OTN)</a><ul class="bold"><li><a href="https://www.oracle.com/communities/index.html">Oracle Communities Directory</a></li><li><a href="https://community.oracle.com/community/faq">FAQ</a></li></ul><div id="footer-row"><ul><li><a href="https://community.oracle.com/docs/DOC-890454" target="_blank">About Oracle Developer Community</a></li><li><a href="http://www.oracle.com/us/sun/index.html">Oracle and Sun</a></li><li><a href="http://www.oracle.com/us/syndication/feeds/index.html">RSS Feeds</a></li><li><a href="http://www.oracle.com/us/syndication/subscribe/index.html">Subscribe</a></li><li><a href="http://www.oracle.com/us/corporate/careers/index.html">Careers</a></li><li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact Us</a></li><li><a href="http://www.oracle.com/us/sitemaps/index.html">Site Maps</a></li><li><a href="https://www.oracle.com/legal/privacy/index.html">Legal Notices</a></li><li><a href="http://www.oracle.com/us/legal/terms/index.html">Terms of Use</a></li><li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your Privacy Rights</a></li><li><span id="teconsent" consent="0,1,2" style="display: inline;"><script async="async" type="text/javascript" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/notice" crossorigin="" id="truste_0.12963106624531184"></script><script async="async" type="text/javascript" crossorigin="" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/v1.7-152"></script><a id="icon-id06069685962627888" tabindex="0" role="button" style="cursor: pointer;" lang="fr">Préférences de cookies</a></span></li><li><a href="https://www.oracle.com/legal/privacy/privacy-policy.html#advertising" alt="">Ad Choices</a></li></ul></div></div><div id="j-footer-poweredBy"><a class="font-color-meta-light j-copyright" href="http://www.jivesoftware.com/poweredby/" target="_blank"><span class="lnk">© 2007-2018 Jive Software</span></a><span class="j-pipe"> | </span><a href="http://www.jivesoftware.com/poweredby/" target="_blank" title="Jive Software, version&nbsp;: 8.0.3.1 , révision&nbsp;: 20160414082626.1619a91.release_8.0.3.x" class="j-powered-by"><span class="lnk">Optimisé par</span> <span class="jive-icon-glyph icon-jivelogo"></span></a></div><div class="j-footer-nav font-color-meta"><a class="" href="https://community.oracle.com/">Accueil</a><span class="j-pipe"> | </span><a class="" href="#top">Haut de page</a></div><div class="j-footer-jiveVersion font-color-meta">Jive Software, version&nbsp;: 8.0.3.1 , révision&nbsp;: 20160414082626.1619a91.release_8.0.3.x</div><span id="speakSpan" class="j-508-label" role="marquee" aria-live="assertive" aria-relevant="all"></span><!-- Start SiteCatalyst code soy --><script type="text/javascript" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/ora_forums.js"></script><script type="text/javascript" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/ora_code_forums.js"></script><script type="text/javascript" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/ora_code.js"></script><img src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/ca.htm" style="display: none !important;" alt="Rocket Fuel" width="0" hidden="" height="0"><!-- End SiteCatalyst code --><script>$j(document).ready(function() {require(['ui-modules/spotlight/scripts/main'], function(main){main.init();});});</script><!--DTM embed code - Footer --><script type="text/javascript">_satellite.pageBottom();</script></div></footer></div></div><div id="jiveTT-note" class="jive-tooltip2 notedefault snp-mouseoffset" role="tooltip"><div class="jive-tooltip2-mid j-mini-modal j-mini-modal-place"><div class="jive-tooltip2-mid-padding j-modal-content clearfix j-js-note-body" id="jive-note-body"></div></div></div><div id="jiveTT-note-additems" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-additems-body"></div></div></div><div id="jiveTT-note-checkpoint" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content" id="jive-note-checkpoint-body"></div></div></div><div id="jiveTT-note-tasks" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content" id="jive-note-tasks-body"></div></div></div><div class="j-alert-container" role="alert" aria-live="polite" aria-atomic="true"></div><span id="j-speak-accessibility" class="j-508-label" role="status" aria-live="polite" aria-relevant="all" aria-atomic="true"></span>	<script>(function() {var prepareUrl = function(url) {if (url.indexOf(";") > 0) {url = url.substring(0, url.indexOf(";"));}if (url.charAt(url.length - 1) == '/') {url = url.substring(0, url.length - 1);}return url}; if (typeof(window._jive_base_url) == "undefined") {window._jive_base_url = prepareUrl("\/")}if (typeof(window._jive_base_absolute_url) == "undefined") {window._jive_base_absolute_url = prepareUrl("https:\/\/community.oracle.com")}if (typeof(window._jive_resource_url) == "undefined") {window._jive_resource_url = prepareUrl("\/8.0.3.1619a91\/")}if (typeof(window._jive_theme_url) == "undefined") {window._jive_theme_url = prepareUrl("\/themes\/otn\/")}if (typeof(window._jive_current_user) == "undefined") {window._jive_current_user = {anonymous: true, partner: false, visible: true, username: 'ANONYMOUS', ID: '-1', enabled: true, avatarID: '-1', displayName: 'ANONYMOUS'};}})(); var _jive_effective_user_id = "-1"; var _jive_auth_token ="no-user"; var _jive_locale = "fr"; var _jive_translation_language = "fr"; var _jive_browser_event = {"providers":["activityStream.poll","appAlert.create","inboxCount.poll"],"since":1544788935951}; var _jive_browser_event_polling_delay =  1800000.0 ; var _jive_socket_events = {"socketEvents":["activityStream.push","tiledata.push"]}; var _jive_realtime_push_enabled =  false ; var _jive_allstream_counts_enabled =  false ;var _jive_timezoneoffset =  0.0 ; var _jive_server_timezoneoffset =  0.0 ; var _jive_enable_browserdb =  false ; var _jive_i18n_should_minify =  true ; var jive = jive || {}; jive.global = jive.global || {}; jive.global.instanceID = '13d62eee-f2da-4eb5-9ac1-8c70aca7a39f-uat'; jive.global.containerType = '14'; jive.global.containerID = '13291';jive.global.containerBrowseId = '1035';window.SPELL_LANGS = "English (Canada)\x3den_ca,English (United Kingdom)\x3den_gb,+English (United States)\x3den_us,French\x3dfr,French (Canada)\x3dfr_ca,German\x3dde,Italian\x3dit,Spanish\x3des"; window.CS_BASE_URL = ""; window.CS_RESOURCE_BASE_URL = "\/8.0.3.1619a91"; window.tinyMCEPreInit = {suffix : "_src", base : CS_BASE_URL + "/resources/scripts/tiny_mce3"}; if (typeof(_jive_project_i18n) == "undefined") {var _jive_project_i18n = new Array(); _jive_project_i18n['project.calendar.task'] = "Tâche"; _jive_project_i18n['project.calendar.tasks'] = "Tâches"; _jive_project_i18n['project.calendar.checkpoint'] = "Point de contrôle"; _jive_project_i18n['project.calendar.checkpoints'] = "Points de contrôle"; _jive_project_i18n['global.edit'] = "Modifier"; _jive_project_i18n['global.delete'] = "Supprimer"; _jive_project_i18n['project.task.mark.complete'] = "Marquer comme terminé"; _jive_project_i18n['project.task.assign.to.me'] = "Me l’attribuer"; _jive_project_i18n['task.incomplete.link'] = "Non complété"; _jive_project_i18n['project.checkPoint.create.link'] = "Créer un point de contrôle"; _jive_project_i18n['project.task.create.link'] = "Créer une tâche";}var _oracle_root_place_id = "1000";</script><script src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/all.js"></script>		<script>var browserWidth = 1500; if(screen.width < 641){browserWidth =screen.width;}else{browserWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth ;}if(browserWidth < 641){$j(function() {require(['oracle/responsive'], function(responsive) { console.log('browser width is less than 641. loading oracle responsive');responsive.init(); });});} else {$j(function() {require(['jive/responsive'], function(responsive) { responsive.init(); });});}</script>		<script>var containerShortUrl = "\/container-short.jspa"; var videoShortUrl = "\/view-video-short.jspa"; var profileShortUrl = "\/profile-short.jspa"; var profileLoadingTooltip = "Chargement du profil d’utilisateur en cours"; var profileErrorTooltip = "Une erreur s’est produite lors du chargement des informations de ce profil."; var followErrorMessage = "Une erreur interne s’est produite lors du suivi de l’objet."; var ajaxErrorMessage = "Une erreur inattendue s’est produite. Assurez-vous que votre session n’a pas expiré lors de l’affichage de cette page."; var ajaxNotFoundMessage = "L’élément spécifié n’a pas été trouvé.";; var ajaxUnauthorizedMessage = "Vous n’êtes pas autorisé(e) à effectuer cette opération. Si vous n’êtes pas connecté(e), veuillez vous connecter et réessayer.";
+		(function() {
+			var originalWrite = document.write;
+			document.write = function() {
+				if(typeof $j != 'undefined' && $j.isReady) {
+					console.warn("document.write called after document was loaded: ", arguments);
+				}
+				else {
+					// In IE before version 8 `document.write()` does not
+					// implement Function methods, like `apply()`.
+					return Function.prototype.apply.call(originalWrite, document, arguments);
+				}
+			}
+		})();
+		</script>	<script>
+reg(["osapi","shindig","gadgets"], ["/8.0.3.1619a91/resources/scripts/gen/0c46b2b05575875f0d902659bd1ed728.js"],function() {
+define('gadgets', gadgets); define('shindig', shindig); define('osapi', osapi);
+
+
+});
+</script>		<script type="text/javascript">window.appsMarketEnabled =  false ; window.anyAppsEnabled =  true ; window.appUUIDs = ""; $j(document).ready(function() {require(['appContainer'], function(appContainer) {});});</script><script>
+reg(["JAF","appContainer","syntheticAppContainer"], ["/8.0.3.1619a91/resources/scripts/gen/8000cc93f918476dd3bcd60fe8d5aaa1.js"],function() {
+define('JAF', ['osapi'], function(osapi) {return {};});
+
+$j(document).ready(function() {define('appContainer', ['jive/app/core_container/'+'main', 'jive/app/core_container/'+'common_container'], function(C) {var c = new C(); c.initActionLinkContext({coreAPIType: 'osapi.jive.core.Document', id: 1007145  }); return c;}); define('syntheticAppContainer', ['appContainer'], function(c) {return c;});});
+
+
+});
+</script><script type="text/javascript">if (window.jQuery) window.jQuery.migrateMute = true;</script><script src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/c0b17679c0cec89a0d271c32c3c69319.js"></script>
+<script>
+jive.rte.defaultStyles = ["\/8.0.3.1619a91\/plugins\/gamification_8.0.3\/resources\/styles\/n4jive.concat.css","\/8.0.3.1619a91\/plugins\/gamification_8.0.3\/resources\/styles\/lib\/n4jive\/n4jive.leaderboards.css"];
+
+jive.observable = jive.conc.observable; jive.rte.mobileUI = false;
+
+jive.global.typeToNumeric = {"webhook":1224013431,"placeTemplateEntity":1567134318,"dm":109016030,"project":600,"discussion":1,"poll":18,"profileImage":501,"blog":37,"space":14,"post":38,"announcement":22,"group":700,"2901":2901,"image":111,"placeTemplateCategory":955999628,"static":1140061448,"securityGroup":4,"externalStreamInstance":1094237539,"task":602,"system":-2,"slide":1606291040,"person":3,"extprop":-1840153649,"extStreamActivity":-960826044,"page":-2106121635,"contentVersion":120,"favorite":800,"streamEntry":1501,"idea":3227383,"document":102,"update":1464927464,"carousel":1527402675,"mention":550,"file":102,"attachment":13,"stream":-891990144,"share":109400031,"tileInstance":1094237539,"profileField":500,"event":96891546,"outcome":2700,"tileDefinition":1803367074,"message":2,"url":801,"collaboration":2800,"privateprop":987082157,"interaction":2801,"comment":105,"invite":350,"user":2020,"extStreamDefinition":1803367074}; jive.global.typeToMacroName = {"idea":"idea","document":"document","project":"project","update":"microblog","discussion":"thread","poll":"polls","blog":"blog","message":"message","space":"community","url":"external-site","task":"task","file":"document","post":"blogpost","person":"user","extStreamActivity":"tilestream","event":"event","group":"group"};
+
+$j.ajaxSettings.traditional = true;
+
+$j(function(){define('documentReady',document);});
+
+require(['tAMD/hooks'], function(h) {h.on('define', 'Zapatec.Calendar', function(id, deps, factory, next) {reg(['Zapatec.Calendar.translations'], ['\/8.0.3.1619a91\/resources\/scripts\/zapatec\/zpcal\/lang\/calendar-fr.js'], function() {define('Zapatec.Calendar.translations', {});}); require(['Zapatec.Calendar.translations'], $j.noop); next(id, deps.concat('Zapatec.Calendar.translations'), factory);}); h.on('publish', 'Zapatec.Calendar', function(id, Calendar, next) {Calendar._TT["DEF_DATE_FORMAT"] = "%d\/%m\/%Y"; next(id, Calendar);});});
+
+$j(document).ready(function() {var followView = new jive.FollowUserApp.ProfileFollowView({i18n: {startFollowingMessage: '<p>{0} a été ajouté(e) en tant qu’ami(e).</p>', stopFollowingMessage:  '<p>{0} a été supprimé(e) de la liste d’amis.</p>', pendingConnectionMessage: '<p>Remarque : {0} devra approuver votre requête</p>'}, bidirectional: true}); var jiveUserFollow = new jive.FollowUserApp.Main({followView: followView}); $j("input[placeholder]").placeHeld();});
+
+</script>
+<script>var containerType = '14'; var containerID = '13291';var spotlightSearchURL = "spotlight-search";</script><script>window._jive_images_enabled = false;</script><script>
+reg(["jive.rte"], ["/8.0.3.1619a91/resources/scripts/gen/7b14a178b3adebbae587573b23be6a36.js"],function() {
+window.errorHandlerMessage = "An error occurred:";
+            window.editorErrorHandler = function(message, exception) {
+              // if the message is something other than a timeout, show the message plus the error code
+              if (message.indexOf('Timeout') == -1) {
+                  $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
+                  $j('#dwr-error-table').fadeIn();
+                  setTimeout(function() {
+                      $j('#dwr-error-table').fadeOut();
+                  }, 10000);
+              }
+            };
+            if(typeof(tinyMCE) != "undefined"){tinyMCE.addI18n('fr.jivemacros',{"unused.jive.key" : "nothing."});}
+          window.RawHTMLSaveFunction = function(element_id, html, body){
+              var text = $j('#'+element_id);
+              if (text.is(':not(:visible)')) {
+                  return html;
+              }else{
+                  return text.val();
+              }
+          }
+          jive.rte.multiRTE = new Array();
+  
+          //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
+          window.refreshLinks = function() {
+              jive.rte.multiRTE.forEach(function(rteID) {
+                  if ($j('#' + rteID + '_parent').length < 1) {
+                      // safari 2, text only
+                      $j('#' + rteID + '_toggle_html').hide();
+                      $j('#jivePreferredEditorModeLinkHREF').hide();
+                      return;
+                  }
+  
+                  if(currentMode == 'rawhtml') {
+                      $j('#' + rteID + '_toggle_html').css('display', 'block');
+                  }else{
+                      $j('#' + rteID + '_toggle_html').hide();
+                  }
+  
+                  if (preferredMode == currentMode) {
+                      $j('#jivePreferredEditorModeLinkHREF').hide();
+                  } else {
+                      $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
+                  }
+              });
+          }
+  
+          window.editor = new jive.ext.y.HashTable();
+          
+
+
+jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]}], [{name: "__default_attr",value: ["java","plain","xml","html","sql"]}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("tag","tags/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "tag",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "name",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("user","people/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "username",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("alert","","TEXT", false, true, [{ name: "success", deleteAll: true, params: [{ name: "__default_attr", value :"success"} ,{ name: "alert", value :"success"} ]},{ name: "info", deleteAll: true, params: [{ name: "__default_attr", value :"info"} ,{ name: "alert", value :"info"} ]},{ name: "warning", deleteAll: true, params: [{ name: "__default_attr", value :"warning"} ,{ name: "alert", value :"warning"} ]},{ name: "danger", deleteAll: true, params: [{ name: "__default_attr", value :"danger"} ,{ name: "alert", value :"danger"} ]}], [{name: "__default_attr",value: ""},{name: "alert",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("flag","","INLINE", false, true, [{ name: "new", deleteAll: true, params: [{ name: "flag", value :"new"} ]},{ name: "updated", deleteAll: true, params: [{ name: "flag", value :"updated"} ]}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], false,false));
+jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], false,false));
+jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("kaltura","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerKey",value: ""},{name: "playerID",value: ""},{name: "partnerID",value: ""},{name: "playerColor",value: "#FFFFFF"},{name: "sourcedomain",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("brightcove","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerKey",value: ""},{name: "playerID",value: ""}], false,false));
+jive.rte.macros.push(new jive.rte.Macro("showandshare","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerColor",value: "#000000"},{name: "sourcedomain",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("application","","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "__title",value: ""},{name: "__view",value: ""},{name: "__params",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("appEmbeddedView","","INLINE", true, false, [], [{name: "_default_attr",value: ""},{name: "_appuuid",value: ""},{name: "_title",value: ""},{name: "_view",value: ""},{name: "_context",value: ""},{name: "_url",value: ""},{name: "_previewimage",value: ""},{name: "_icon",value: ""},{name: "_action_id",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("tilestream","external/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("event","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("idea","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+define('jive.rte', jive.rte);
+
+
+});
+</script><script src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/bundle_fr.js"></script><script src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/a3ef7bc3b32d9e1b8fb24c0d5e41e50a.js"></script>
+<script>
+var _editor_lang = "fr";
+var _jive_video_picker__url = "?container=13291&containerType=14"
+var _jive_comment_images_enabled = false;
+
+
+reg(["apps/userpicker/views/select_skill_view"],["/8.0.3.1619a91/resources/scripts/gen/04436abab325c47e1736fc47fdc17bec.js"]);
+
+reg(["apps/static_files/static_file_modal"],["/8.0.3.1619a91/resources/scripts/gen/14851ad5c52263fa5d2874b76eb9c902.js"]);
+
+reg(["apps/shared/views/date_picker_view"],["/8.0.3.1619a91/resources/scripts/gen/de9acde346851e25ab134f1741bc9364.js"]);
+
+reg(["apps/places/actions/main"],["/8.0.3.1619a91/resources/scripts/gen/5b22d48c0268c5f7a4b0e0f82394f4ee.js"]);
+
+reg(["apps/places/manage/views/archive_controls"],["/8.0.3.1619a91/resources/scripts/gen/6dba5bb1b56e56d78ed8166a30b79d11.js"]);
+
+reg(["apps/contentplace_relationship/main"],["/8.0.3.1619a91/resources/scripts/gen/23b6e09f45cf36bf5e0631472873c22e.js"]);
+
+reg(["apps/shared/models/lazy_corev3"],["/8.0.3.1619a91/resources/scripts/gen/12458e5169bb8db836f647e3438eed29.js"]);
+
+reg(["apps/invitation/main"],["/8.0.3.1619a91/resources/scripts/gen/3623ad69831d61306096b224f2f6fd41.js"]);
+
+reg(["apps/movecontent/main"],[]);
+
+reg(["apps/share/main"],[]);
+
+reg(["soy!jive.UserPicker.soy.renderModalSkillSearchButton"],[]);
+
+reg(["apps/places/manage/views/author_by_email_controls"],["/8.0.3.1619a91/resources/scripts/gen/8ea236cd3e4c96874e8922c19f0122fa.js"]);
+
+reg(["apps/places/manage/views/category_controls"],["/8.0.3.1619a91/resources/scripts/gen/eb3d858cdbb85a54a9d53c644cd9157c.js"]);
+
+reg(["soy!jive.extended_invitation.warn_bar"],[]);
+
+reg(["soy!jive.integration.tiles.view.embeddedExperience"],[]);
+
+reg(["apps/direct_messaging/factory"],["/8.0.3.1619a91/resources/scripts/gen/442a92ad98352f93006b915396f168ec.js"]);
+
+reg(["soy!jive.nav.menu.home.inbox"],[]);
+
+reg(["apps/tile/integrations/carousel"],["/8.0.3.1619a91/resources/scripts/gen/2ad69ba9d15adb34775329571a5312a7.js"]);
+
+reg(["apps/tile/embedded_view"],["/8.0.3.1619a91/resources/scripts/gen/f418552b674cf2c209b766e74d3a698d.js"]);
+
+reg(["apps/tile/responsive_tile"],[]);
+
+reg(["soy!jive.error.rest.soy.errorFinding"],[]);
+
+        function initBadgeHelper(badgeHelper) {
+            badgeHelper.enableHeaderBadges();
+        }
+        require(['apps/outcomes/badgeHelper'],initBadgeHelper);
+
+
+
+
+        var jiveMembership = new jive.MembershipApp.Main({objectID:13291});
+        var jiveMoveContent = new jive.Move.Content.Main({
+            objectType: 102,
+            objectID: 1007145,
+            personalContainerTitleKey:'k2922',
+            personalContainerCaptionKey:'k291b',
+            searchPlaceholderKey:'k2df0',
+            containerID: 13291,
+            containerType: 14});
+        var jiveReportAbuse = new jive.Modalizer.Main({triggers:['#jive-link-abuse a'],liveTriggers:['.js-link-abuse'], width: 'medium'});
+        $j(function() { new jive.EmailNotification.Main(1007145, 102); });
+
+
+    
+    function toggleFeatured() {
+        $j.post(jive.rest.url("/featuredContent/toggle/" + 102 +"/"+ 1007145+"/"+13291+"/"+14))
+            .then(function(featured) {
+                if (featured == "true") {
+                    $j('#featured-toggle-feature').hide();
+                    $j('#featured-toggle-unfeature').show();
+                } else {
+                    $j('#featured-toggle-unfeature').hide();
+                    $j('#featured-toggle-feature').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured == "true") {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>Cet élément est désormais à la une !</div>');
+                           
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>Vous avez supprimé cet élément du contenu à la une.</div>');
+                        }
+                    }
+                });
+            });
+    }
+
+    function toggleFeaturedOnProfile() {
+        $j.post(jive.rest.url("/featuredContent/toggle/" + 102 +"/"+ 1007145))
+            .then(function(featured) {
+                if (featured == "true") {
+                    $j('#featured-toggle-feature-onprofile').hide();
+                    $j('#featured-toggle-unfeature-onprofile').show();
+                } else {
+                    $j('#featured-toggle-unfeature-onprofile').hide();
+                    $j('#featured-toggle-feature-onprofile').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured == "true") {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>Cet élément est désormais à la une !</div>');
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>Vous avez supprimé cet élément du contenu à la une.</div>');
+                        }
+                    }
+                });
+            });
+    }
+
+
+$j(function() {require(['apps/guided_navigation/main'], function(M) {var main = new M();});});
+
+reg(["soy!jive.rate.soy.renderRating"],[]);
+
+reg(["apps/rate/main"],[]);
+
+            define("commentMacroApps", ['apps/comment_app/main'], function(CommentAppMain) {
+                var options = {
+                    resourceType:       102,
+                    resourceID:         1007145,
+
+                    containerType:      14,
+                    containerID:        13291,
+
+                    keepAliveEnabled:   true,
+
+                    contentObject: {
+                            document:          1007145,
+                            version:           4
+                    },
+
+                    listAction:         "/doc-comments.jspa",
+
+                    isAnonymous:        true,
+                    isThreaded:         true,
+                    isFinalized:        false,
+
+                    paginate:           true,
+
+                    pageSize:           25,
+                    isPrintPreview:     false,
+                    rteOptions : {
+                        preset        : "mini-w-quote",
+                        preferredMode : "advanced",
+                        startMode     : "advanced",
+                        mobileUI      : false,
+                        toggleText    : 'Afficher l’éditeur complet',
+                        alwaysUseTabText : 'Toujours utiliser cet éditeur',
+                        editDisabledText : 'L’appareil que vous utilisez permet uniquement d’ajouter du contenu.',
+                        editDisabledSummary : 'Si vous accédez à {0} depuis un ordinateur, vous pouvez à la fois ajouter à et modifier votre contenu.',
+                        communityName : 'Oracle Community',
+                        height        : 200,
+                        images_enabled: window._jive_comment_images_enabled
+
+                    },
+                    i18n: {
+                        confirmDeleteComment:    'Êtes-vous certain(e) de vouloir supprimer ce commentaire ?',
+                        postSuccessText:         'Remarque : votre commentaire a été ajouté avec succès, mais il devra être approuvé par un modérateur avant d’être publié.',
+                        postUserWroteLabel:      '{0} a écrit',
+                        postGuestWroteLabel:     'Un invité a écrit',
+                        cmntEditingTitle:        'Modification du commentaire',
+                        globalAjaxError:         'Une erreur inattendue s’est produite. Assurez-vous que votre session n’a pas expiré lors de l’affichage de cette page.',
+                        replyToTitle:            'Répondre à {0}',
+                        formSubmitPleaseWait:    'Veuillez patienter…',
+                        globalLoginRequired:     'Vous n’êtes plus connecté(e). Veuillez {0}vous connecter{1} pour continuer.',
+                        loading:				 'Chargement en cours…'
+                    }
+                };
+
+
+                // Create a separate CommentApp instance for each tab.
+                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
+
+
+                return jive.CommentApp;
+            });
+
+
+
+    $j(function() {
+        $j("#jive-link-delete a").click(function() {
+            launchDocDeleteModal();
+        });
+    });
+
+    $j(function() {
+        $j("#doc-delete-submit-button").click(function() {
+            var form = $j("#documentDeleteForm");
+            jive.util.securedForm(form).always(function() {
+                form.submit();
+            });
+        });
+    });
+
+    function launchDocDeleteModal(){
+        $j("#jive-modal-delete-doc").lightbox_me({closeSelector: ".jive-modal-close, .close"});
+        return false;
+    }
+
+
+$j(function() {
+       $j('#jive-office-plugin-download').css('display','block');
+       $j('#jive-office-plugin-download > div').css('padding', '0px');
+});
+
+
+reg(["apps/onboarding/views/add_document_collaborator"],["/8.0.3.1619a91/resources/scripts/gen/40402244643cb62036f7f56a80d40160.js"]);
+
+reg(["apps/onboarding/views/fill_out_profile"],["/8.0.3.1619a91/resources/scripts/gen/549267eeaa6f04abd597d09097ec9e6d.js"]);
+
+reg(["apps/onboarding/views/like_content"],["/8.0.3.1619a91/resources/scripts/gen/243218fa0ac5cc859c3ab09ec727dc1e.js"]);
+
+reg(["apps/onboarding/views/about_you"],["/8.0.3.1619a91/resources/scripts/gen/01d8806658b9d5f921d824959ad05e0b.js"]);
+
+reg(["apps/navbar/menu/satellite/main"],["/8.0.3.1619a91/resources/scripts/gen/d21ed364adbaba4e99a86c828edbea0f.js"]);
+
+reg(["apps/onboarding/views/learn_system"],["/8.0.3.1619a91/resources/scripts/gen/4dd2a15e81951c59e8908321e2402b0f.js"]);
+
+reg(["apps/metric/models/metric_source"],["/8.0.3.1619a91/resources/scripts/gen/ae369e89344d8e9bba70662cbd9a6e61.js"]);
+
+reg(["apps/onboarding/views/create_blogpost"],["/8.0.3.1619a91/resources/scripts/gen/679bc3c8fa8da95d9b73d2af2b4a050c.js"]);
+
+reg(["apps/onboarding/views/jive_for_outlook"],["/8.0.3.1619a91/resources/scripts/gen/8da488b5fc90d274eab56739079078f8.js"]);
+
+reg(["apps/trial/views/trial_tip_helper"],["/8.0.3.1619a91/resources/scripts/gen/b5a1a136521170641c69cf54e3949077.js"]);
+
+reg(["apps/onboarding/views/create_or_set_shared_group"],["/8.0.3.1619a91/resources/scripts/gen/85f57ace588233f54e52fe3bd6ccd3e8.js"]);
+
+reg(["jive/rte/syntax/SyntaxHighlighter"],["/8.0.3.1619a91/resources/scripts/gen/bf66a02ea281d69e95cc166255c616f3.js"]);
+
+reg(["apps/shared/controllers/browser_events"],["/8.0.3.1619a91/resources/scripts/gen/681409e000dd89d739595df583f2b811.js"]);
+
+reg(["apps/onboarding/views/create_or_join_group"],["/8.0.3.1619a91/resources/scripts/gen/cb72deb5420bfd3fdf216de6e8b0c985.js"]);
+
+reg(["jive/app/core_container/views/rtc_view"],["/8.0.3.1619a91/resources/scripts/gen/e81a64043c86e420f43a3349785a66ae.js"]);
+
+reg(["ui-modules/spotlight/scripts/main"],[]);
+
+reg(["apps/social_sharing/main"],["/8.0.3.1619a91/resources/scripts/gen/a567a8366c34af7f624dce92a25992ef.js"]);
+
+reg(["jive/app/core_container/mock"],["/8.0.3.1619a91/resources/scripts/gen/a80588821b8aaa660fd4a8c36ea36f32.js"]);
+
+reg(["apps/shared/controllers/socket_holder"],["/8.0.3.1619a91/resources/scripts/gen/1a17b2976d4e48ceb83c9cb8e8dd6101.js"]);
+
+reg(["apps/onboarding/views/create_wall_entry"],["/8.0.3.1619a91/resources/scripts/gen/033077d5e08d6d18b13a6394faf9dc4d.js"]);
+
+reg(["apps/onboarding/views/create_comment_or_message"],["/8.0.3.1619a91/resources/scripts/gen/5621da660a21f8c5155232e8e813c66e.js"]);
+
+reg(["apps/onboarding/views/jive_anywhere"],["/8.0.3.1619a91/resources/scripts/gen/3590149903fcff1275f5d0b8e0c58516.js"]);
+
+reg(["apps/onboarding/views/create_private_group"],["/8.0.3.1619a91/resources/scripts/gen/5522d8c0fc2639f95bc2c153bf80188c.js"]);
+
+reg(["apps/onboarding/views/create_project"],["/8.0.3.1619a91/resources/scripts/gen/422465dbb2a6f5865c1eea96c4dea4b9.js"]);
+
+reg(["apps/onboarding/views/invite_to_group"],["/8.0.3.1619a91/resources/scripts/gen/de95408b1a22159b2f000d50216c13b5.js"]);
+
+reg(["apps/navbar/menu/home/navbar_menu_home_main"],["/8.0.3.1619a91/resources/scripts/gen/1b6713e3e38e631d16e2e0e865f9973a.js"]);
+
+reg(["apps/filters/view/item_grid_view"],["/8.0.3.1619a91/resources/scripts/gen/1c447953c3a1f70f3b48385d20b8df3c.js"]);
+
+reg(["apps/onboarding/views/jive_for_office"],["/8.0.3.1619a91/resources/scripts/gen/f25bb175f404fc303b74d1f81ce852ca.js"]);
+
+reg(["apps/onboarding/views/connect_colleagues"],["/8.0.3.1619a91/resources/scripts/gen/a0a5fc39583e6bf0a9ccd98919c47711.js"]);
+
+reg(["apps/onboarding/views/mobile_login"],["/8.0.3.1619a91/resources/scripts/gen/3d25ae6b6d0ed69cbf2e36aa5bce5130.js"]);
+
+reg(["apps/onboarding/views/create_thread"],["/8.0.3.1619a91/resources/scripts/gen/05ac489cb46861c81dc42a91cdab673b.js"]);
+
+reg(["jive/app/core_container/main"],["/8.0.3.1619a91/resources/scripts/gen/fe96fbea396e7282b23f025c064aaf40.js"]);
+
+reg(["apps/autosearch/lightbox"],["/8.0.3.1619a91/resources/scripts/gen/882020f6066f74abef99dbdf25879802.js"]);
+
+reg(["apps/trial/models/trial_panel_source"],["/8.0.3.1619a91/resources/scripts/gen/b20fd219b6a55e01e7ffbd68453a8d6c.js"]);
+
+reg(["apps/onboarding/views/create_document"],["/8.0.3.1619a91/resources/scripts/gen/e320dbdb5c36f879baa41e3218077118.js"]);
+
+reg(["jive/app/core_container/common_container"],["/8.0.3.1619a91/resources/scripts/gen/e7b9fe89510f9f0cecff783665261850.js"]);
+
+reg(["Zapatec.Calendar"],["/8.0.3.1619a91/resources/scripts/gen/6d3b031d00b20b69f8080667352218cc.js"]);
+
+reg(["apps/onboarding/views/invite_users"],["/8.0.3.1619a91/resources/scripts/gen/668ed8c8f0d91a0998a53f6544123a24.js"]);
+
+reg(["apps/onboarding/views/invite_external_users"],["/8.0.3.1619a91/resources/scripts/gen/9956a0af66db981cda1210b16efbf2c9.js"]);
+
+reg(["apps/onboarding/views/follow_user"],["/8.0.3.1619a91/resources/scripts/gen/8452a5e116123356c4004345a560c3ba.js"]);
+
+reg(["apps/onboarding/views/upload_or_move_file"],["/8.0.3.1619a91/resources/scripts/gen/e5637849c8cb1bd1b4e438a664ea6350.js"]);
+
+reg(["apps/trial/views/trial_view"],["/8.0.3.1619a91/resources/scripts/gen/ae38ded86b080cea0da68c606eb0d323.js"]);
+
+reg(["apps/onboarding/views/tour_ui"],["/8.0.3.1619a91/resources/scripts/gen/ad8cc02044e8961c3f0d60a9f1ff6c6b.js"]);
+
+$j(document).ready(function() {new jive.nitro.content.Main({apiKey: "5413cc1f1c9a4b0997d0e01e86d061ab", timeStamp: "1544788935", signature: "7b2ca19e21514961b6f88ea0518a46a6", server: "https://solutions.nitro.bunchball.net/nitro/json", userID: "-1", localizationEnabled: false});});
+
+$j(function() {require(['apps/tips/main'], function(Tips) {var tipsApp = new Tips({tipGroups:[], skippedTipGroupIDs: []});});});
+
+function updateLinks() {var dynamicThemeUrls = '/edit-place,/discussion/create,/document/upload,/document/create,/blog/create-post,/blog/update-post.jspa,/poll/create, /edit,/version, /blog/update-post.jspa, /search, /community-create, /create-idea,/people,/reputation.jspa,/profile-calendar.jspa'.csvToArray()[0]; $j('a').each(function() {var href = $j(this).attr('href'); for (var i = 0; i < dynamicThemeUrls.length; i++) {if (href != null && href.indexOf('customTheme') == -1 && dynamicThemeUrls[i].trim() && href.indexOf(dynamicThemeUrls[i].trim()) != -1) {if (href.indexOf('?') == -1) {href = href + '?customTheme=java';} else {href = href + '&customTheme=java';}$j(this).attr('href', href);}}})}; $j(document).on('mousedown', 'a', function(event) {updateLinks();});
+
+if ($j('#warning-header #warning-text-container').text().length > 0) {$styleblock = $j("<style type='text/css'>#warning-header {background-color: #2F49ED; max-height: 25px; overflow: hidden; display: block; z-index: 10; text-align: center; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; color: #fff; font-size:13px; font-style:normal;}#top {height: 111px;}#j-compact-header #j-globalNav-bg {height: 107px;}.j-pop.mega-nav-pop {top: 107px !important;}</style>"); $j('head').append($styleblock);} else {$styleblock = $j("<style type='text/css'>.j-pop.mega-nav-pop {top: 90px !important;}</style>"); $j('head').append($styleblock);}
+
+
+                        require(['jquery'], function($) {
+                            $('#navLogin').on('click', function(e) {
+                                var fragment = '';
+                                if (window.location.hash.length > 1){
+                                    fragment = "?fragment=" + window.location.hash.substring(1);
+                                }
+                                $('#navLogin').attr("href", jive.app.url({ path: '/login.jspa' }) + fragment);
+                           });
+                        });
+                        
+
+$j(function() {var meganav = new jive.meganav.Main(1000);});
+
+$j("#nav-goto-menu").on('click', function(){$j("#nav-goto-dropdown").popover({context: $j("#nav-goto-menu"), destroyOnClose: false, closeOtherPopovers: true, nudge:  {top:10,left:0}, addClass: 'nav-goto-pop'});});
+
+$j(function(){var $sliderContainer = $j( '.osb-slider' ); if ( $sliderContainer.length ) {var osbSlider = $sliderContainer.unslider({delay: 115000, fluid: true, dots: false, complete: function() {if ( sliderData ) {$sliderContainer.find( '.unslider-arrow' ).hide(); if ( sliderData.current > 0 ) {$sliderContainer.find( '.unslider-arrow.prev' ).show();}if (sliderData.current < slides ) {$sliderContainer.find( '.unslider-arrow.next' ).show();}}}}); var sliderData = osbSlider.data( 'unslider' ), slides = sliderData.items.length - 1; $sliderContainer.find( 'li' ).show(); $sliderContainer.find( '.unslider-arrow' ).hide() .click( function() {var fn = this.className.split(' ')[ 1 ]; osbSlider.data( 'unslider' )[ fn ]();}); $sliderContainer.find( '.unslider-arrow.next' ).show();}$j( '#jive-compliance' ).delay( 1000 ).queue( function( next ) { $j( this ).hide(); next(); });});
+
+require([ 'apps/activity_stream/activity_notifier', 'apps/activity_stream/models/activity_stream_source', 'jive/responsive' ], function(ActivityNotifier, ActivityStreamSource) {}); $j(window).load(function(){jive.onLoadEventComplete = true;});
+
+var authSource = new jive.Authentication.Source({forceSecure: false});
+
+reg(["apps/microblogging/status_input_drop_down"],[]);
+
+reg(["apps/microblogging/link_builder"],[]);
+
+reg(["jive/fresh_action_queue"],[]);
+
+reg(["jive/app/rte/artifacts"],[]);
+
+window.tinyMCE_GZ = { loaded: true };
+
+</script>
+<!-- plugin javascript --><!-- end plugin javascript -->	<script src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/6b18381450c9fec654bd02e96efa7843.js"></script>
+<script type="text/javascript">var _cf = _cf || []; _cf.push(['_setFsp', true]); _cf.push(['_setBm', true]); </script><script type="text/javascript" src="The%20Java%20Trove%20%20Part%20II%20%20%C2%A0Oracle%20Community_fichiers/abd-1-30"></script></body></html>

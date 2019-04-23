@@ -1,0 +1,83 @@
+ .myDIV{
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+    }
+
+  	body,html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    }
+
+    .searchbar{
+    margin-bottom: auto;
+    margin-top: 30px;
+    height: 60px;
+    width: 800px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .tagcloud {
+    width: 100%;
+    background:#CFE3FF;
+    color:#0066FF;
+    padding: 10px;
+    border: 1px solid #559DFF;
+    text-align:center;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+    .search_input{
+    padding: 0 10px;
+    width: 450px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    }
+
+    .img{
+    margin-bottom: auto;
+    margin-top: 30px;
+    margin-left: 640px;
+       
+    }
+	
+	footer{
+	background-color: #eee; 
+	padding: 25px;}
+   
+    ul, li{
+	ist-style-type: none;}
+    .list{margin-top: 15px;}
